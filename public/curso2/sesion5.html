@@ -1,0 +1,407 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informática para primaria - Sesión 5</title>
+  <meta name="description" content="Sesión 5: Permisos y Sudo.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
+
+  <div class="fontButtonContainer" id="accessibilityBar" role="toolbar" aria-label="Herramientas de accesibilidad">
+    <div class="select-container">
+      <label for="fontSelect" class="visually-hidden">Seleccionar fuente</label>
+      <select id="fontSelect" class="z-index">
+        <optgroup label="Parámetros por defecto:">
+          <option value="standard">Fuente estándar</option>
+        </optgroup>
+        <optgroup label="Dislexia:">
+          <option value="dyslexic">OpenDyslexic</option>
+        </optgroup>
+        <optgroup label="Deficiencias visuales:">
+          <option value="hyperlegible">Atkinson Hyperlegible</option>
+        </optgroup>
+        <optgroup label="Alta legibilidad:">
+          <option value="Lato">Lato</option>
+          <option value="Montserrat">Montserrat</option>
+          <option value="Open Sans">Open Sans</option>
+          <option value="Roboto">Roboto</option>
+        </optgroup>
+      </select>
+    </div>
+    <button id="increaseFontBtn" class="font-button" title="Incrementa la fuente" aria-label="Incrementar tamaño de fuente">A+</button>
+    <button id="decreaseFontBtn" class="font-button" title="Reduce la fuente" aria-label="Reducir tamaño de fuente">A-</button>
+    <button id="readBtn" class="font-button" title="Lee en voz alta la selección o la página entera">Leer (es)</button>
+    <button id="downloadMp3Btn" class="font-button" title="Descarga un audio MP3 corto del texto seleccionado">MP3</button>
+    <div class="select-container">
+      <label for="visionSelect" class="visually-hidden">Modo de visualización</label>
+      <select id="visionSelect" class="z-index">
+        <optgroup label="Visualización">
+          <option value="normal">Visión normal</option>
+          <option value="protanopia">Protanopia</option>
+          <option value="deuteranopia">Deuteranopia</option>
+          <option value="tritanopia">Tritanopia</option>
+          <option value="high-contrast">Alto contraste</option>
+        </optgroup>
+      </select>
+    </div>
+    <button id="toggleBarBtn" class="font-button" title="Fija o suelta la barra de accesibilidad">Fijar</button>
+    <a href="https://batexego.bilateria.org/" target="_blank" rel="noopener noreferrer" class="z-index info-link">+Info</a>
+  </div>
+
+  <nav class="curriculum-nav" aria-label="Estructura del cuaderno">
+    <div class="container">
+      <div class="curriculum-nav-head">
+        <h2 class="curriculum-title mb-0">Índice</h2>
+        <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#curriculumMenuWrapper" aria-expanded="false" aria-controls="curriculumMenuWrapper">
+          Ver cursos y sesiones
+        </button>
+      </div>
+      <div class="collapse mt-3" id="curriculumMenuWrapper">
+        <div id="curriculumMenu" class="curriculum-menu" role="tree" aria-label="Cursos, trimestres y sesiones"></div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="global-progress" aria-labelledby="globalProgressTitle">
+    <div class="container">
+      <div class="curriculum-nav-head">
+        <h2 id="globalProgressTitle" class="curriculum-title mb-0">Resumen global de progreso</h2>
+        <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#globalProgressWrapper" aria-expanded="false" aria-controls="globalProgressWrapper">
+          Ver progreso
+        </button>
+      </div>
+      <div class="collapse mt-3" id="globalProgressWrapper">
+        <div id="globalProgressSummary" class="global-progress-grid" aria-live="polite"></div>
+        <div class="progress-actions mt-3">
+          <button id="resetProgressBtn" type="button" class="btn btn-outline-danger btn-sm">Reiniciar progreso</button>
+          <p id="resetProgressFeedback" class="small mb-0 mt-2" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <header class="session-header">
+    <div class="container">
+      <p class="eyebrow mb-1">Informática avanzada · Trimestre 1 · Sesión 5</p>
+      <h1 class="session-title">Permisos y Sudo</h1>
+      <p class="session-subtitle">Objetivo: distinguir permisos de archivo y uso responsable de sudo.</p>
+      <div class="session-actions no-print" aria-label="Acciones de la sesión">
+        <button id="printWorksheetBtn" type="button" class="btn btn-primary btn-sm">Imprimir ficha (PDF)</button>
+        <p class="small mb-0">Se abrirá la vista de impresión para guardar o imprimir en papel.</p>
+      </div>
+      <div class="progress-wrap" aria-label="Progreso de sesión">
+        <div class="progress" role="progressbar" aria-label="Progreso completado" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0">
+          <div id="sessionProgressBar" class="progress-bar" style="width: 0%"></div>
+        </div>
+        <p id="sessionProgressText" class="small mt-2 mb-0">0 de 3 actividades completadas</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido-principal" class="container py-4 py-lg-5">
+    <section class="card card-soft mb-4" aria-labelledby="explicacionTitulo">
+      <div class="card-body p-4">
+        <h2 id="explicacionTitulo" class="h4">Bloque 1 · Explicación (1 hora)</h2>
+        <p>En esta sesión trabajamos <strong>Permisos y Sudo</strong>. Observa la infografía interactiva y pulsa en cada zona para comprender quién puede leer, escribir o ejecutar en Linux.</p>
+
+        <div class="row g-4 align-items-start">
+          <div class="col-12 col-lg-7">
+            <figure class="infografia" aria-labelledby="infografiaTitulo">
+              <figcaption id="infografiaTitulo" class="fw-semibold mb-2">Infografía interactiva: permisos y privilegios</figcaption>
+              <svg viewBox="0 0 640 360" role="img" aria-labelledby="svgTitle svgDesc" class="w-100">
+                <title id="svgTitle">Mapa de permisos Linux y sudo</title>
+                <desc id="svgDesc">Representación de usuario, grupo, otros y elevación temporal con sudo.</desc>
+
+                <rect x="34" y="24" width="572" height="312" rx="20" fill="#eef6ff" stroke="#5f7ea1" stroke-width="2"/>
+                <rect x="62" y="58" width="154" height="98" rx="12" fill="#0b5ed7"/>
+                <rect x="242" y="58" width="154" height="98" rx="12" fill="#198754"/>
+                <rect x="422" y="58" width="154" height="98" rx="12" fill="#6f42c1"/>
+
+                <rect x="92" y="192" width="452" height="110" rx="12" fill="#ffffff" stroke="#264b72" stroke-width="2"/>
+                <path d="M139 156 L139 192" stroke="#264b72" stroke-width="3"/>
+                <path d="M319 156 L319 192" stroke="#264b72" stroke-width="3"/>
+                <path d="M499 156 L499 192" stroke="#264b72" stroke-width="3"/>
+
+                <text x="139" y="92" text-anchor="middle" class="svg-label">Usuario</text>
+                <text x="319" y="92" text-anchor="middle" class="svg-label">Grupo</text>
+                <text x="499" y="92" text-anchor="middle" class="svg-label">Otros</text>
+
+                <text x="124" y="230" class="svg-label-small">r = leer</text>
+                <text x="124" y="252" class="svg-label-small">w = escribir</text>
+                <text x="124" y="274" class="svg-label-small">x = ejecutar</text>
+
+                <text x="318" y="230" text-anchor="middle" class="svg-label-small">chmod cambia permisos</text>
+                <text x="318" y="256" text-anchor="middle" class="svg-label-small">sudo eleva privilegios</text>
+                <text x="318" y="282" text-anchor="middle" class="svg-label-small">solo cuando es necesario</text>
+              </svg>
+            </figure>
+
+            <div class="hotspot-grid" role="group" aria-label="Selección de componente">
+              <button class="btn btn-outline-primary hotspot-btn" data-part="permiso" data-description="Permisos: r, w, x definen qué puede hacer cada perfil con un archivo.">Permisos rwx</button>
+              <button class="btn btn-outline-primary hotspot-btn" data-part="usuario" data-description="Usuario propietario: tiene control principal del archivo o carpeta.">Usuario</button>
+              <button class="btn btn-outline-primary hotspot-btn" data-part="grupo" data-description="Grupo: comparte permisos entre varios usuarios del sistema.">Grupo</button>
+              <button class="btn btn-outline-primary hotspot-btn" data-part="sudo" data-description="sudo: acceso temporal de administrador, siempre con responsabilidad.">sudo</button>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-5">
+            <aside class="info-panel" aria-live="polite" id="partInfo">
+              Pulsa un bloque para ver qué privilegio representa.
+            </aside>
+            <div class="tip-box mt-3">
+              <h3 class="h6 mb-2">Normas de trabajo de la sesión</h3>
+              <ul class="mb-0">
+                <li>Lee el objetivo antes de empezar la práctica.</li>
+                <li>Aplica los pasos en orden para evitar errores.</li>
+                <li>Revisa el resultado final y anota dudas.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card-soft mb-4" aria-labelledby="practicaTitulo">
+      <div class="card-body p-4">
+        <h2 id="practicaTitulo" class="h4">Bloque 2 · Práctica (1 hora)</h2>
+        <p>Completa las actividades para comprobar lo aprendido en esta sesión.</p>
+
+        <article class="activity mb-4" aria-labelledby="quizTitulo">
+          <h3 id="quizTitulo" class="h5">Actividad 1 · Test rápido</h3>
+          <form id="quizForm" novalidate>
+            <fieldset>
+              <legend class="fs-6">En esta sesión, ¿qué debes tener más claro para aplicar Permisos y Sudo?</legend>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRespuesta" id="respConcepto" value="concepto">
+                <label class="form-check-label" for="respConcepto">El concepto clave</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRespuesta" id="respHerramienta" value="herramienta">
+                <label class="form-check-label" for="respHerramienta">La herramienta adecuada</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRespuesta" id="respPractica" value="practica">
+                <label class="form-check-label" for="respPractica">El paso práctico principal</label>
+              </div>
+            </fieldset>
+            <div class="d-flex gap-2 mt-3">
+              <button type="submit" class="btn btn-primary">Comprobar</button>
+              <button type="button" id="quizHintBtn" class="btn btn-outline-secondary">Ver pista</button>
+            </div>
+            <p id="quizFeedback" class="feedback mt-3" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="activity mb-4" aria-labelledby="dragTitulo">
+          <h3 id="dragTitulo" class="h5">Actividad 2 · Relaciona bloque y función</h3>
+          <p class="small mb-2">Modo A: arrastrar y soltar. Modo B: alternativa accesible con select.</p>
+
+          <div class="row g-3">
+            <div class="col-12 col-lg-5">
+              <ul id="dragItems" class="drag-list" aria-label="Bloques de la sesión">
+                <li draggable="true" tabindex="0" class="drag-item" data-component="concepto">Concepto clave</li>
+                <li draggable="true" tabindex="0" class="drag-item" data-component="herramienta">Herramienta</li>
+                <li draggable="true" tabindex="0" class="drag-item" data-component="practica">Paso práctico</li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-7">
+              <div class="drop-grid" aria-label="Funciones">
+                <div class="drop-zone" data-target="concepto" tabindex="0">Comprender la idea principal</div>
+                <div class="drop-zone" data-target="herramienta" tabindex="0">Elegir recurso o menú correcto</div>
+                <div class="drop-zone" data-target="practica" tabindex="0">Aplicar y comprobar el resultado</div>
+              </div>
+            </div>
+          </div>
+
+          <details class="mt-3">
+            <summary>Modo alternativo sin arrastrar</summary>
+            <div class="row g-2 mt-1">
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="alt1">Idea principal:</label>
+                <select id="alt1" class="form-select">
+                  <option value="">Selecciona</option>
+                  <option value="concepto">Concepto clave</option>
+                  <option value="herramienta">Herramienta</option>
+                  <option value="practica">Paso práctico</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="alt2">Recurso correcto:</label>
+                <select id="alt2" class="form-select">
+                  <option value="">Selecciona</option>
+                  <option value="concepto">Concepto clave</option>
+                  <option value="herramienta">Herramienta</option>
+                  <option value="practica">Paso práctico</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="alt3">Aplicar y comprobar:</label>
+                <select id="alt3" class="form-select">
+                  <option value="">Selecciona</option>
+                  <option value="concepto">Concepto clave</option>
+                  <option value="herramienta">Herramienta</option>
+                  <option value="practica">Paso práctico</option>
+                </select>
+              </div>
+            </div>
+          </details>
+
+          <div class="d-flex gap-2 mt-3">
+            <button type="button" id="dragCheckBtn" class="btn btn-primary">Comprobar relación</button>
+            <button type="button" id="dragResetBtn" class="btn btn-outline-secondary">Reiniciar</button>
+          </div>
+          <p id="dragFeedback" class="feedback mt-3" aria-live="polite"></p>
+        </article>
+
+        <article class="activity" aria-labelledby="fillTitulo">
+          <h3 id="fillTitulo" class="h5">Actividad 3 · Rellenar huecos</h3>
+          <form id="fillForm" novalidate>
+            <p>
+              En la sesión sobre Permisos y Sudo, primero debo entender el
+              <label for="fill1" class="visually-hidden">Hueco 1</label>
+              <select id="fill1" class="inline-select">
+                <option value="">...</option>
+                <option value="concepto">concepto clave</option>
+                <option value="herramienta">herramienta</option>
+                <option value="practica">paso práctico</option>
+              </select>.
+            </p>
+            <p>
+              Después debo elegir la
+              <label for="fill2" class="visually-hidden">Hueco 2</label>
+              <select id="fill2" class="inline-select">
+                <option value="">...</option>
+                <option value="concepto">idea general</option>
+                <option value="herramienta">herramienta adecuada</option>
+                <option value="practica">revisión final</option>
+              </select>
+              para trabajar bien.
+            </p>
+            <p>
+              Por último realizo el
+              <label for="fill3" class="visually-hidden">Hueco 3</label>
+              <select id="fill3" class="inline-select">
+                <option value="">...</option>
+                <option value="concepto">resumen inicial</option>
+                <option value="herramienta">menú opcional</option>
+                <option value="practica">paso práctico</option>
+              </select>
+              y compruebo el resultado.
+            </p>
+            <div class="d-flex gap-2 mt-3">
+              <button type="submit" class="btn btn-primary">Corregir huecos</button>
+              <button type="button" id="fillHintBtn" class="btn btn-outline-secondary">Ver pista</button>
+            </div>
+            <p id="fillFeedback" class="feedback mt-3" aria-live="polite"></p>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section class="print-sheet print-only" aria-labelledby="fichaPapelTitulo">
+      <h2 id="fichaPapelTitulo">Ficha imprimible · Sesión 5</h2>
+      <p class="print-meta">Nombre y apellidos: ________________________________ Fecha: ____ / ____ / ______</p>
+
+      <h3 class="h5 mt-4">Bloque 1 · Identifica los bloques de la sesión</h3>
+      <p>Observa el esquema y completa qué significa cada permiso.</p>
+      <figure class="print-figure" aria-label="Esquema para completar nombres de bloques">
+        <svg viewBox="0 0 760 420" role="img" aria-labelledby="printSvgTitle printSvgDesc" class="w-100">
+          <title id="printSvgTitle">Esquema imprimible de permisos Linux</title>
+          <desc id="printSvgDesc">Diagrama de usuario, grupo y otros con permisos rwx para completar.</desc>
+
+          <defs>
+            <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 z" fill="#111" />
+            </marker>
+          </defs>
+
+          <rect x="84" y="74" width="170" height="92" rx="12" fill="none" stroke="#111" stroke-width="2"/>
+          <rect x="296" y="74" width="170" height="92" rx="12" fill="none" stroke="#111" stroke-width="2"/>
+          <rect x="508" y="74" width="170" height="92" rx="12" fill="none" stroke="#111" stroke-width="2"/>
+          <rect x="208" y="230" width="346" height="96" rx="12" fill="none" stroke="#111" stroke-width="2"/>
+
+          <line x1="169" y1="166" x2="262" y2="230" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+          <line x1="381" y1="166" x2="381" y2="230" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+          <line x1="593" y1="166" x2="500" y2="230" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+
+          <text x="169" y="126" text-anchor="middle" font-size="17" font-weight="700">Usuario</text>
+          <text x="381" y="126" text-anchor="middle" font-size="17" font-weight="700">Grupo</text>
+          <text x="593" y="126" text-anchor="middle" font-size="17" font-weight="700">Otros</text>
+          <text x="381" y="266" text-anchor="middle" font-size="16" font-weight="700">r · w · x  /  sudo</text>
+
+          <text x="20" y="82" font-size="17" font-weight="700">A) ____________________</text>
+          <text x="500" y="82" font-size="17" font-weight="700">B) ____________________</text>
+          <text x="20" y="354" font-size="17" font-weight="700">C) ____________________</text>
+          <text x="500" y="354" font-size="17" font-weight="700">D) ____________________</text>
+        </svg>
+      </figure>
+
+      <h3 class="h5 mt-4">Bloque 2 · Actividades en papel</h3>
+
+      <article class="print-activity">
+        <h4 class="h6">Actividad 1 · Marca la opción correcta</h4>
+        <p>En esta sesión de Permisos y Sudo, ¿qué paso te ayuda a comprobar que lo has hecho bien?</p>
+        <p>○ Concepto clave &nbsp;&nbsp;&nbsp; ○ Herramienta adecuada &nbsp;&nbsp;&nbsp; ○ Paso práctico</p>
+      </article>
+
+      <article class="print-activity">
+        <h4 class="h6">Actividad 2 · Relaciona con flechas o escribe la letra</h4>
+        <div class="print-grid-2">
+          <div>
+            <p class="mb-1"><strong>Bloques</strong></p>
+            <p class="mb-1">A. Concepto clave</p>
+            <p class="mb-1">B. Herramienta</p>
+            <p class="mb-1">C. Paso práctico</p>
+          </div>
+          <div>
+            <p class="mb-1"><strong>Funciones</strong></p>
+            <p class="mb-1">___ Comprender la idea principal</p>
+            <p class="mb-1">___ Elegir recurso correcto</p>
+            <p class="mb-1">___ Aplicar y comprobar</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="print-activity">
+        <h4 class="h6">Actividad 3 · Rellena los huecos</h4>
+        <p>Primero entiendo el ________________________.</p>
+        <p>Después uso la _____________________________ adecuada.</p>
+        <p>Por último completo el ______________________ y reviso.</p>
+      </article>
+
+      <div class="print-footer-note">
+        <p>Autoevaluación: ¿Qué he aprendido hoy sobre Permisos y Sudo?</p>
+        <p class="print-line">________________________________________________________________________________</p>
+        <p class="print-line">________________________________________________________________________________</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-4 text-center small text-secondary">
+    Cuaderno de consulta · Informática para primaria · Sesión 5
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const SESSION_ID = "c2t1s5";
+    const CORRECT_MAP = { concepto: "concepto", herramienta: "herramienta", practica: "practica" };
+    const FILL_ANSWERS = { fill1: "concepto", fill2: "herramienta", fill3: "practica" };
+    const SESSION_COMPONENT_LABELS = {
+      concepto: "Concepto clave",
+      herramienta: "Herramienta",
+      practica: "Paso práctico"
+    };
+  </script>
+  <script src="../assets/js/session-template.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# .gitignore — PHP/MySQL web app
+
+# Configuración local (credenciales)
+config/database.php
+config/app.php
+.env
+
+# Dependencias (si se usa Composer en el futuro)
+vendor/
+
+# Cachés y logs
+*.log
+*.cache
+storage/
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.DS_Store
+Thumbs.db
+
+# Uploads generados por usuario
+public/uploads/
+
+# Tests con datos reales
+db/tests/datasets/*.real.*
+
+# Archivos temporales del SO
+$RECYCLE.BIN/

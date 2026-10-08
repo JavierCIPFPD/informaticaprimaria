@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Pedagógico: Autonomía Tecnológica</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 12mm;
+            background-color: #ffffff;
+            @bottom-right {
+                content: counter(page);
+                font-family: 'Arial', sans-serif;
+                font-size: 8pt;
+                color: #718096;
+            }
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.4;
+            color: #2d3748;
+        }
+
+        h1 {
+            font-size: 20pt;
+            color: #1a365d;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: #2b6cb0;
+            border-left: 4px solid #3182ce;
+            padding-left: 8px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 11.5pt;
+            color: #2c5282;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        .accent-box {
+            background-color: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        .warning-box {
+            background-color: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid #e53e3e;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 9.5pt;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e0;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #2b6cb0;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+
+        .session-block {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+            background-color: #fff;
+        }
+
+        .session-header {
+            background-color: #4299e1;
+            color: white;
+            padding: 6px 12px;
+            margin: -15px -15px 12px -15px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            font-weight: bold;
+            font-size: 11pt;
+        }
+
+        .page-split {
+            border-top: 1px dashed #a0aec0;
+            margin: 15px 0;
+            position: relative;
+            text-align: center;
+        }
+        .page-split::after {
+            content: "HOJA DE TRABAJO EN CLASE (UN FOLIO)";
+            background: #fff;
+            padding: 0 10px;
+            font-size: 8pt;
+            color: #718096;
+            position: relative;
+            top: -9px;
+            font-weight: bold;
+        }
+        
+        .practical-split {
+            border-top: 1px dashed #e53e3e;
+            margin: 15px 0;
+            position: relative;
+            text-align: center;
+        }
+        .practical-split::after {
+            content: "HOJA PRÁCTICA Y TALLER DE REPARACIÓN (UN FOLIO)";
+            background: #fff;
+            padding: 0 10px;
+            font-size: 8pt;
+            color: #e53e3e;
+            position: relative;
+            top: -9px;
+            font-weight: bold;
+        }
+
+        .blank-space {
+            display: inline-block;
+            border-bottom: 1px solid #4a5568;
+            width: 120px;
+            height: 14px;
+            vertical-align: bottom;
+            margin: 0 4px;
+        }
+        
+        .blank-space-long {
+            display: block;
+            border-bottom: 1px solid #4a5568;
+            width: 100%;
+            height: 20px;
+            margin: 8px 0;
+        }
+
+        .match-container {
+            display: table;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .match-column {
+            display: table-cell;
+            width: 45%;
+        }
+        .match-line {
+            display: table-cell;
+            width: 10%;
+            text-align: center;
+            vertical-align: middle;
+            color: #cbd5e0;
+        }
+        .match-item {
+            border: 1px dashed #718096;
+            padding: 5px;
+            margin-bottom: 5px;
+            background: #f7fafc;
+            border-radius: 4px;
+            font-size: 9.5pt;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Soberanía Digital &amp; Hackers del Futuro</h1>
+    <p style="text-align:center; font-weight:bold; color:#4a5568; margin-bottom:25px;">
+        Proyecto Pedagógico de Autonomía Tecnológica y Mantenimiento Informático para Alumnos de 11 años
+    </p>
+
+    <h2>1. Introducción y Motivación</h2>
+    <p>Los niños y niñas de 11 años (6º de Primaria) han crecido rodeados de pantallas, pero su relación con la tecnología es principalmente de consumo pasivo. Saben abrir una aplicación de vídeo o jugar online, pero desconocen por completo qué ocurre debajo de la carcasa plástica de sus dispositivos. Cuando un sistema falla, se ralentiza o muestra un mensaje inesperado, la respuesta habitual es la frustración o el abandono del dispositivo.</p>
+    <p>Este proyecto nace para romper el mito de la "caja negra mágica". Queremos transformar a los alumnos en <strong>dueños soberanos de sus máquinas</strong>, capaces de entender su lógica, diagnosticar fallos físicos y de software, y cuidar su infraestructura digital con responsabilidad y seguridad.</p>
+
+    <h2>2. Objetivos Generales</h2>
+    <ul>
+        <li>Desmitificar el hardware y el software mediante analogías del entorno cotidiano y un lenguaje accesible.</li>
+        <li>Fomentar la paciencia, el pensamiento lógico-deductivo y la resolución autónoma de problemas cotidianos (troubleshooting).</li>
+        <li>Aprender a manipular de forma segura componentes electrónicos internos sin miedo y con estricto respeto a las normas de seguridad.</li>
+        <li>Promover la cultura del software libre, el reciclaje tecnológico, la privacidad y la soberanía sobre los propios datos.</li>
+    </ul>
+
+    <h2>3. Metodología Didáctica</h2>
+    <p>Cada sesión de trabajo se compone rígidamente de dos horas pedagógicas diseñadas para ocupar el espacio equivalente a dos folios independientes:</p>
+    <ul>
+        <li><strong>Primera Hora (Contenidos Conceptuales y Ficha Teórica - Un Folio):</strong> Se expone un único concepto central usando metáforas simplificadas. Se consolida de inmediato con actividades escritas a bolígrafo (unir con flechas, rellenar huecos, crucigramas conceptuales) para fijar el mapa mental.</li>
+        <li><strong>Segunda Hora (Ficha Práctica y Taller de Campo - Un Folio):</strong> Una actividad de taller directa, manual y manipulativa. Los alumnos disponen de una guía de pasos secuenciales y una sección de observaciones clínicas que deben rellenar a bolígrafo con los datos reales obtenidos en sus mediciones o reparaciones.</li>
+    </ul>
+
+    <h2>4. Recursos del Aula de Hackers</h2>
+    <ul>
+        <li><strong>Espacio:</strong> Aula taller con mesas amplias de superficie no conductora (madera o plástico), bien iluminada y ventilada.</li>
+        <li><strong>Herramientas por pareja:</strong> 1 kit de destornilladores de precisión (puntas Phillips PH0, PH1, Torx T5, T6, Pentalobe), 1 pulsera antiestática, púas plásticas de apertura.</li>
+        <li><strong>Materiales fungibles:</strong> Botes de aire comprimido, alcohol isopropílico (99%), paños de microfibra, pasta térmica de alta calidad.</li>
+        <li><strong>Hardware:</strong> 1 Unidad USB de 16GB por alumno (preparada con Ventoy), portátiles de pruebas (modelos antiguos o reciclados listos para desarmar e instalar sistemas).</li>
+    </ul>
+
+    <hr style="border: 0; border-top: 2px solid #1a365d; margin: 30px 0;">
+
+    <h2>5. Unidades de Muestra y Secuenciación de Sesiones</h2>
+    <p>A continuación se detallan tres sesiones estratégicas del plan de estudios como modelo del desarrollo metodológico del proyecto.</p>
+
+    <!-- SESIÓN 1 -->
+    <div class="session-block">
+        <div class="session-header">SESIÓN 1: El cuerpo del PC - El mapa de la placa base (Curso 1, Trimestre 1)</div>
+        
+        <h3>PRIMERA HORA: Teoría y Metáforas Visuales (Ficha del Alumno)</h3>
+        <p><strong>¿Cómo piensa un ordenador?</strong> El ordenador es muy parecido a una cocina de un gran restaurante:</p>
+        <ul>
+            <li><strong>La CPU (El Chef):</strong> Es el cerebro. Es rapidísimo cocinando recetas, pero si no le pasas los ingredientes, no hace nada.</li>
+            <li><strong>La Memoria RAM (La Mesa de Trabajo):</strong> Es una mesa limpia. Cuanto más grande sea la mesa, más platos puede preparar el chef a la vez. ¡Pero ojo! Al final del día (cuando apagamos el PC), la mesa se limpia por completo y no queda nada sobre ella.</li>
+            <li><strong>El Disco Duro (El Armario de la Despensa):</strong> Aquí guardamos las cajas de galletas, los libros de recetas y la comida que no queremos que se estropee. No se borra al apagar el ordenador.</li>
+            <li><strong>La Placa Base (El Suelo de la Cocina):</strong> Son los caminos de baldosas que conectan al chef con la mesa y la despensa.</li>
+        </ul>
+
+        <div class="accent-box">
+            <strong>Actividad 1: Rellena los huecos con tu bolígrafo azul.</strong><br>
+            Si quiero que mi ordenador guarde mis fotos de las vacaciones para siempre, las guardaré en el <span class="blank-space"></span>. 
+            Si abro tres pestañas de juego a la vez, esos juegos se colocarán temporalmente en la memoria <span class="blank-space"></span> para que el chef, llamado <span class="blank-space"></span>, pueda leerlos rápido.
+        </div>
+
+        <div class="accent-box">
+            <strong>Actividad 2: Une con flechas el componente con su superpoder.</strong>
+            <div class="match-container">
+                <div class="match-column">
+                    <div class="match-item">A. Disco Duro</div>
+                    <div class="match-item">B. CPU</div>
+                    <div class="match-item">C. Memoria RAM</div>
+                </div>
+                <div class="match-line">➔<br>➔<br>➔</div>
+                <div class="match-column">
+                    <div class="match-item">1. Se borra por completo al apagar el PC.</div>
+                    <div class="match-item">2. Cerebro ultra-rápido que procesa datos.</div>
+                    <div class="match-item">3. Guarda los archivos de forma permanente.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="practical-split"></div>
+
+        <h3>SEGUNDA HORA: Taller Práctico - Exploración Interna Real</h3>
+        <div class="warning-box">¡REGLA DE SEGURIDAD MÁXIMA!: El portátil debe estar completamente apagado, sin cargador, y debemos tocar metal para descargar nuestra electricidad estática antes de mirar dentro.</div>
+        
+        <p><strong>Pasos para la misión de hoy:</strong></p>
+        <ol>
+            <li>Coloca el portátil bocabajo sobre la mesa protectora.</li>
+            <li>Con el destornillador adecuado, retira los tornillos de la tapa trasera con cuidado y colócalos dentro del imán organizador para que no se pierdan.</li>
+            <li>Retira la tapa plástica levantándola despacio con la púa.</li>
+            <li>Localiza visualmente los módulos de la memoria RAM, el ventilador y la unidad de disco duro. ¡No toques nada con dedos húmedos!</li>
+        </ol>
+
+        <div class="accent-box" style="background-color: #f7fafc; border: 1px solid #cbd5e0;">
+            <strong>FICHA CLÍNICA DE TALLER (Rellenar a mano por la pareja de mecánicos):</strong><br>
+            Nombres de los técnicos: <span class="blank-space" style="width:250px;"></span><br>
+            1. ¿Cuántos tornillos exactos habéis quitado de la tapa exterior?: <span class="blank-space"></span> tornillos.<br>
+            2. Mirad la memoria RAM. ¿Cuántos rectángulos o pastillas de memoria hay instalados?: <span class="blank-space"></span>.<br>
+            3. ¿De qué marca es el disco duro del ordenador que estáis revisando?: <span class="blank-space"></span>.<br>
+            4. Describid con vuestras palabras el estado del ventilador (¿Tiene polvo acumulado?): 
+            <span class="blank-space-long"></span>
+            <span class="blank-space-long"></span>
+        </div>
+    </div>
+
+    <!-- SESIÓN 11 -->
+    <div class="session-block">
+        <div class="session-header">SESIÓN 11: El juego de las averías (I) - Detectives de Software (Curso 1, Trimestre 1)</div>
+        
+        <h3>PRIMERA HORA: El método científico del detective informático (Ficha Teórica)</h3>
+        <p>Un buen informático nunca adivina los fallos haciendo cosas al azar. ¡Utiliza la cabeza como Sherlock Holmes! El camino del éxito tiene 3 pasos:</p>
+        <ol>
+            <li><strong>Observación:</strong> Mirar los síntomas exactos. ¿Qué hace la pantalla? ¿Qué luces parpadean? ¿Qué ruidos se escuchan?</li>
+            <li><strong>Hipótesis:</strong> Pensar qué componente podría estar fallando según los síntomas (¿Es culpa del software o del hardware?).</li>
+            <li><strong>Prueba:</strong> Hacer un cambio controlado para verificar si la hipótesis era correcta.</li>
+        </ol>
+
+        <div class="accent-box">
+            <strong>Actividad 1: El misterio de las palabras perdidas.</strong><br>
+            Si un ordenador se enciende pero la pantalla se queda completamente en negro y escuchamos unos pitidos seguidos desde el interior, el detective sospecha inmediatamente de un fallo de <span class="blank-space"></span> y no de un fallo del sistema operativo. En cambio, si el PC enciende, muestra el logotipo inicial pero dice "Dispositivo de arranque no encontrado", la hipótesis principal es que el <span class="blank-space"></span> se ha desconectado o está estropeado.
+        </div>
+
+        <div class="accent-box">
+            <strong>Actividad 2: Clasifica los siguientes fallos escribiendo "SOFT" (Software) o "HARD" (Hardware):</strong><br>
+            • El ratón físico tiene el cable pelado y el cursor no se mueve: <span class="blank-space"></span><br>
+            • Al abrir el navegador, todas las páginas salen escritas en el idioma Chino: <span class="blank-space"></span><br>
+            • El ordenador va lentísimo porque tiene instalados tres antivirus que pelean entre sí: <span class="blank-space"></span><br>
+            • Al pulsar el botón de encendido del portátil, no se enciende ninguna luz ni gira el ventilador: <span class="blank-space"></span>
+        </div>
+
+        <div class="practical-split"></div>
+
+        <h3>SEGUNDA HORA: Taller Práctico - El juego de la avería misteriosa</h3>
+        <p><strong>Dinámica del juego:</strong> El profesor ha saboteado los equipos de pruebas de forma secreta mientras estabais fuera del aula. Cada pareja se enfrenta a un ordenador "enfermo". Tenéis que aplicar el protocolo de detective para devolverlo a la vida.</p>
+        
+        <div class="accent-box" style="background-color: #f7fafc; border: 1px solid #cbd5e0;">
+            <strong>INFORME PERICIAL DE REPARACIÓN (Rellenar en el laboratorio):</strong><br>
+            Número de Equipo Afectado: <span class="blank-space"></span> Equipo Técnico: <span class="blank-space" style="width:200px;"></span><br><br>
+            <strong>PASO 1: SÍNTOMAS OBSERVADOS</strong> (Escribe exactamente qué hace el PC al intentar encenderlo):
+            <span class="blank-space-long"></span>
+            
+            <strong>PASO 2: NUESTRA HIPÓTESIS</strong> (¿Qué creéis que ha hecho el profesor para estropearlo?):
+            <span class="blank-space-long"></span>
+            
+            <strong>PASO 3: SOLUCIÓN APLICADA paso a paso</strong> (¿Qué habéis configurado o reconectado para arreglarlo?):
+            <span class="blank-space-long"></span>
+            <span class="blank-space-long"></span><br>
+            ¿El ordenador vuelve a funcionar perfectamente? Escribe <strong>SÍ / NO</strong>: <span class="blank-space"></span>
+        </div>
+    </div>
+
+    <!-- SESIÓN 12 -->
+    <div class="session-block">
+        <div class="session-header">SESIÓN 12: El juego de las averías (II) - Detectives de Hardware (Curso 1, Trimestre 1)</div>
+        
+        <h3>PRIMERA HORA: Los falsos contactos y la conexión física (Ficha Teórica)</h3>
+        <p>A veces, los ordenadores no se rompen de verdad; simplemente se vuelven "sordos" porque un conector interno se ha movido un milímetro debido a un golpe en la mochila escolar. El hardware se conecta mediante módulos que encajan a presión (como las piezas de LEGO) o pequeños cables planos flexibles llamados <strong>flex</strong>.</p>
+        <p>El enemigo número uno de las conexiones limpias es la suciedad y el movimiento. Aprenderemos a verificar que todo está asentado en su sitio antes de dar un componente por muerto.</p>
+
+        <div class="accent-box">
+            <strong>Actividad 1: Rellena los huecos del manual de emergencias.</strong><br>
+            Para solucionar un conector sucio o con un falso contacto, los profesionales desconectan el componente y limpian las pistas de cobre utilizando <span class="blank-space"></span> isopropílico, ya que este líquido se evapora rapidísimo y no deja rastro de agua. Nunca debemos usar agua del grifo porque provocaríamos un <span class="blank-space"></span> eléctrico que quemaría la placa base.
+        </div>
+
+        <div class="accent-box">
+            <strong>Actividad 2: Verdadero o Falso (Escribe V o F al final de la línea):</strong><br>
+            • Si un conector flex no entra suave, hay que apretar con mucha fuerza usando unos alicates: <span class="blank-space" style="width:40px;"></span><br>
+            • La pulsera antiestática protege los componentes de las chispas invisibles de nuestro cuerpo: <span class="blank-space" style="width:40px;"></span><br>
+            • Si la memoria RAM está mal encajada, el ordenador avisará normalmente emitiendo pitidos: <span class="blank-space" style="width:40px;"></span>
+        </div>
+
+        <div class="practical-split"></div>
+
+        <h3>SEGUNDA HORA: Taller Práctico - Reparación física en vivo</h3>
+        <p><strong>Desafío Mecánico:</strong> Vuestro ordenador de pruebas ha dejado de detectar un componente vital interno (el profesor ha desconectado físicamente la RAM, el cable de datos del disco o el conector de la pantalla). Debéis operar el hardware con precisión quirúrgica.</p>
+
+        <div class="accent-box" style="background-color: #f7fafc; border: 1px solid #cbd5e0;">
+            <strong>HOJA DE SEGUIMIENTO DE CIRUGÍA DE HARDWARE (Escribir a bolígrafo):</strong><br>
+            Herramientas utilizadas en la reparación: <span class="blank-space" style="width:280px;"></span><br><br>
+            <strong>Diagnóstico visual inicial:</strong> Al retirar la tapa trasera del ordenador, hemos inspeccionado visualmente la placa base y hemos detectado que el componente llamado <span class="blank-space" style="width:180px;"></span> estaba completamente fuera de su ranura de seguridad.<br><br>
+            <strong>Pasos realizados para la reparación física:</strong><br>
+            1. Desconectamos la batería interna por seguridad. (Hecho: <span class="blank-space" style="width:40px;"></span>)<br>
+            2. Retiramos el componente y soplamos con aire comprimido la ranura para limpiar impurezas. (Hecho: <span class="blank-space" style="width:40px;"></span>)<br>
+            3. Volvimos a encajar el componente hasta escuchar el sonido "clic" de los cierres laterales. (Hecho: <span class="blank-space" style="width:40px;"></span>)<br><br>
+            <strong>Resultado final del experimento:</strong><br>
+            Al encender el equipo, la pantalla mostró la BIOS correctamente y detectó un total de <span class="blank-space"></span> Gigabytes de memoria instalada. ¡Reparación completada con éxito!
+        </div>
+    </div>
+
+    <h2>6. Modelos e Instrumentos de Evaluación</h2>
+    <p>Para asegurar que este proyecto cumple con sus objetivos sin generar estrés académico, se establece un ecosistema de evaluación multidireccional de 360 grados.</p>
+
+    <h3>A) Evaluación de los Alumnos (Continua y Formativa)</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Criterio Técnico y Actitudinal</th>
+                <th>Excelente (4 pts)</th>
+                <th>Adecuado (2-3 pts)</th>
+                <th>A mejorar (0-1 pts)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Seguridad y Manipulación</strong></td>
+                <td>Siempre desconecta la corriente, usa pulsera antiestática y trata el hardware con cuidado exquisito.</td>
+                <td>Sigue las normas de seguridad la mayor parte del tiempo, pero requiere algún recordatorio del profesor.</td>
+                <td>Manipula los equipos con prisa, olvida las normas de seguridad o fuerza los componentes físicos.</td>
+            </tr>
+            <tr>
+                <td><strong>Resolución de Problemas (Lógica)</strong></td>
+                <td>Aplica el método de detective de forma ordenada: observa, plantea hipótesis lógicas y resuelve de forma autónoma.</td>
+                <td>Encuentra el fallo pero avanza por ensayo y error sin rellenar la ficha clínica de forma analítica.</td>
+                <td>Se frustra rápidamente ante el error, no lee los síntomas y abandona la tarea esperando la solución.</td>
+            </tr>
+            <tr>
+                <td><strong>Trabajo Colaborativo en Taller</strong></td>
+                <td>Comparte las herramientas, escucha activamente las ideas de su pareja y ayuda a otros equipos si terminan antes.</td>
+                <td>Trabaja bien en pareja pero tiende a monopolizar las herramientas o el destornillador principal.</td>
+                <td>No trabaja en equipo, ignora las propuestas de su compañero o perjudica el orden del aula-taller.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>B) Evaluación del Proyecto por los Implicados (Calidad Institucional)</h3>
+    
+    <div class="accent-box">
+        <strong>1. Encuesta de Satisfacción del Alumno (Rellenar con emoticonos / Anónima al final del trimestre):</strong><br>
+        • ¿Te has sentido seguro usando las herramientas del taller? (Sí / A veces / No): <span class="blank-space"></span><br>
+        • ¿Las explicaciones del profesor usando metáforas (como la cocina) te ayudaron a entender el PC? (Mucho / Normal / Poco): <span class="blank-space"></span><br>
+        • ¿Qué actividad te ha gustado más?: <span class="blank-space-long"></span>
+    </div>
+
+    <div class="accent-box" style="background-color: #f7fafc; border: 1px solid #718096;">
+        <strong>2. Rúbrica de Control para el Profesor y Equipo Directivo (Análisis Trimestral):</strong><br>
+        • <strong>Mantenimiento de infraestructura:</strong> ¿El porcentaje de portátiles dañados irreversiblemente en las prácticas es menor al 5%? (SÍ / NO): <span class="blank-space"></span><br>
+        • <strong>Cumplimiento de tiempos:</strong> ¿Las dos horas por sesión son suficientes para desarrollar la ficha teórica y la práctica de taller completa? (SÍ / NO): <span class="blank-space"></span><br>
+        • <strong>Impacto transversal escolar:</strong> ¿Los maestros de otras asignaturas notan que los alumnos resuelven mejor los problemas técnicos cotidianos con sus ordenadores de clase sin interrumpir la lección? (Valoración 1 al 5): <span class="blank-space"></span>
+    </div>
+
+</body>
+</html>

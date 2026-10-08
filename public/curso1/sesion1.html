@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informática para primaria - Sesión 1</title>
+  <meta name="description" content="Sesión 1: hardware básico y desmontar el portátil de forma segura.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
+
+  <div class="fontButtonContainer" id="accessibilityBar" role="toolbar" aria-label="Herramientas de accesibilidad">
+    <div class="select-container">
+      <label for="fontSelect" class="visually-hidden">Seleccionar fuente</label>
+      <select id="fontSelect" class="z-index">
+        <optgroup label="Parámetros por defecto:">
+          <option value="standard">Fuente estándar</option>
+        </optgroup>
+        <optgroup label="Dislexia:">
+          <option value="dyslexic">OpenDyslexic</option>
+        </optgroup>
+        <optgroup label="Deficiencias visuales:">
+          <option value="hyperlegible">Atkinson Hyperlegible</option>
+        </optgroup>
+        <optgroup label="Alta legibilidad:">
+          <option value="Lato">Lato</option>
+          <option value="Montserrat">Montserrat</option>
+          <option value="Open Sans">Open Sans</option>
+          <option value="Roboto">Roboto</option>
+        </optgroup>
+      </select>
+    </div>
+    <button id="increaseFontBtn" class="font-button" title="Incrementa la fuente" aria-label="Incrementar tamaño de fuente">A+</button>
+    <button id="decreaseFontBtn" class="font-button" title="Reduce la fuente" aria-label="Reducir tamaño de fuente">A-</button>
+    <button id="readBtn" class="font-button" title="Lee en voz alta la selección o la página entera">Leer (es)</button>
+    <button id="downloadMp3Btn" class="font-button" title="Descarga un audio MP3 corto del texto seleccionado">MP3</button>
+    <div class="select-container">
+      <label for="visionSelect" class="visually-hidden">Modo de visualización</label>
+      <select id="visionSelect" class="z-index">
+        <optgroup label="Visualización">
+          <option value="normal">Visión normal</option>
+          <option value="protanopia">Protanopia</option>
+          <option value="deuteranopia">Deuteranopia</option>
+          <option value="tritanopia">Tritanopia</option>
+          <option value="high-contrast">Alto contraste</option>
+        </optgroup>
+      </select>
+    </div>
+    <button id="toggleBarBtn" class="font-button" title="Fija o suelta la barra de accesibilidad">Fijar</button>
+    <a href="https://batexego.bilateria.org/" target="_blank" rel="noopener noreferrer" class="z-index info-link">+Info</a>
+  </div>
+
+  <nav class="curriculum-nav" aria-label="Estructura del cuaderno">
+    <div class="container">
+      <div class="curriculum-nav-head">
+        <h2 class="curriculum-title mb-0">Índice</h2>
+        <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#curriculumMenuWrapper" aria-expanded="false" aria-controls="curriculumMenuWrapper">
+          Ver cursos y sesiones
+        </button>
+      </div>
+      <div class="collapse mt-3" id="curriculumMenuWrapper">
+        <div id="curriculumMenu" class="curriculum-menu" role="tree" aria-label="Cursos, trimestres y sesiones"></div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="global-progress" aria-labelledby="globalProgressTitle">
+    <div class="container">
+      <div class="curriculum-nav-head">
+        <h2 id="globalProgressTitle" class="curriculum-title mb-0">Resumen global de progreso</h2>
+        <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#globalProgressWrapper" aria-expanded="false" aria-controls="globalProgressWrapper">
+          Ver progreso
+        </button>
+      </div>
+      <div class="collapse mt-3" id="globalProgressWrapper">
+        <div id="globalProgressSummary" class="global-progress-grid" aria-live="polite"></div>
+        <div class="progress-actions mt-3">
+          <button id="resetProgressBtn" type="button" class="btn btn-outline-danger btn-sm">Reiniciar progreso</button>
+          <p id="resetProgressFeedback" class="small mb-0 mt-2" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <header class="session-header">
+    <div class="container">
+      <p class="eyebrow mb-1">Iniciación a la Informática · Trimestre 1 · Sesión 1</p>
+      <h1 class="session-title">Hardware básico y desmontar el portátil</h1>
+      <p class="session-subtitle">Objetivo: identificar piezas esenciales de un portátil y aprender normas de seguridad antes de abrirlo.</p>
+      <div class="session-actions no-print" aria-label="Acciones de la sesión">
+        <button id="printWorksheetBtn" type="button" class="btn btn-primary btn-sm">Imprimir ficha (PDF)</button>
+        <p class="small mb-0">Se abrirá la vista de impresión para guardar o imprimir en papel.</p>
+      </div>
+      <div class="progress-wrap" aria-label="Progreso de sesión">
+        <div class="progress" role="progressbar" aria-label="Progreso completado" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0">
+          <div id="sessionProgressBar" class="progress-bar" style="width: 0%"></div>
+        </div>
+        <p id="sessionProgressText" class="small mt-2 mb-0">0 de 3 actividades completadas</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido-principal" class="container py-4 py-lg-5">
+    <section class="card card-soft mb-4" aria-labelledby="explicacionTitulo">
+      <div class="card-body p-4">
+        <h2 id="explicacionTitulo" class="h4">Bloque 1 · Explicación (1 hora)</h2>
+        <p>Antes de desmontar un portátil, recuerda tres reglas: apagar el equipo, desconectarlo de la corriente y trabajar sobre una superficie estable. En la infografía puedes pulsar cada zona para conocer su función.</p>
+
+        <div class="row g-4 align-items-start">
+          <div class="col-12 col-lg-7">
+            <figure class="infografia" aria-labelledby="infografiaTitulo">
+              <figcaption id="infografiaTitulo" class="fw-semibold mb-2">Infografía interactiva: partes de un portátil</figcaption>
+              <svg viewBox="0 0 640 360" role="img" aria-labelledby="svgTitle svgDesc" class="w-100">
+                <title id="svgTitle">Diagrama simplificado de un portátil abierto</title>
+                <desc id="svgDesc">Ilustración detallada de portátil abierto con pantalla, teclado, memoria RAM, unidad SSD, batería, bisagras y placa interna.</desc>
+
+                <rect x="86" y="28" width="468" height="176" rx="16" class="svg-screen"/>
+                <rect x="98" y="40" width="444" height="152" rx="12" fill="#111827"/>
+                <rect x="108" y="50" width="424" height="132" rx="8" class="svg-display"/>
+                <circle cx="320" cy="40" r="3" fill="#d6dee8"/>
+
+                <path d="M104 172 Q320 130 536 172" fill="none" stroke="#b8ccde" stroke-width="2"/>
+                <path d="M104 84 Q320 54 536 84" fill="none" stroke="#bfd8ef" stroke-width="1.2"/>
+
+                <rect x="96" y="200" width="24" height="18" rx="4" fill="#4c6174"/>
+                <rect x="520" y="200" width="24" height="18" rx="4" fill="#4c6174"/>
+
+                <path d="M58 214 L582 214 L604 322 Q603 334 592 336 L48 336 Q37 334 36 322 Z" class="svg-base"/>
+                <rect x="78" y="226" width="484" height="90" rx="14" fill="#7f95a7"/>
+
+                <rect x="94" y="232" width="100" height="44" rx="8" class="svg-chip"/>
+                <rect x="98" y="236" width="92" height="8" rx="3" fill="#86bdff"/>
+                <rect x="98" y="247" width="92" height="8" rx="3" fill="#4d99ff"/>
+                <rect x="98" y="258" width="92" height="8" rx="3" fill="#2d7fe8"/>
+                <text x="144" y="281" text-anchor="middle" class="svg-label-small" fill="#ffffff">RAM</text>
+
+                <rect x="446" y="232" width="112" height="44" rx="8" class="svg-disk"/>
+                <circle cx="456" cy="242" r="2.5" fill="#cdeedb"/>
+                <circle cx="548" cy="266" r="2.5" fill="#cdeedb"/>
+                <rect x="460" y="247" width="84" height="6" rx="3" fill="#bfe8d2"/>
+                <text x="502" y="281" text-anchor="middle" class="svg-label-small" fill="#ffffff">SSD</text>
+
+                <circle cx="250" cy="254" r="24" fill="#374151"/>
+                <circle cx="250" cy="254" r="17" fill="#1f2937"/>
+                <circle cx="250" cy="254" r="4" fill="#9ca3af"/>
+                <path d="M250 234 L258 250 L250 254 Z" fill="#6b7280"/>
+                <path d="M266 246 L254 254 L250 254 Z" fill="#6b7280"/>
+                <path d="M258 266 L250 254 L250 254 Z" fill="#6b7280"/>
+                <path d="M234 258 L250 254 L250 254 Z" fill="#6b7280"/>
+
+                <rect x="280" y="236" width="148" height="40" rx="8" fill="#4f6679"/>
+                <rect x="292" y="246" width="24" height="12" rx="2" fill="#9cb4c8"/>
+                <rect x="322" y="246" width="24" height="12" rx="2" fill="#9cb4c8"/>
+                <rect x="352" y="246" width="24" height="12" rx="2" fill="#9cb4c8"/>
+                <rect x="382" y="246" width="24" height="12" rx="2" fill="#9cb4c8"/>
+
+                <g>
+                  <rect x="166" y="280" width="308" height="34" rx="7" class="svg-keyboard"/>
+                  <rect x="178" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="203" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="228" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="253" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="278" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="303" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="328" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="353" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="378" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="403" y="286" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="428" y="286" width="34" height="8" rx="2" fill="#4b5563"/>
+
+                  <rect x="178" y="298" width="28" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="211" y="298" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="236" y="298" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="261" y="298" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="286" y="298" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="311" y="298" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="336" y="298" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="361" y="298" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="386" y="298" width="20" height="8" rx="2" fill="#4b5563"/>
+                  <rect x="411" y="298" width="51" height="8" rx="2" fill="#4b5563"/>
+                </g>
+
+                <rect x="262" y="318" width="116" height="14" rx="7" class="svg-battery"/>
+                <rect x="378" y="322" width="5" height="6" rx="1.5" fill="#fd7e14"/>
+                <text x="320" y="329" text-anchor="middle" class="svg-label-small">Batería</text>
+
+                <rect x="190" y="317" width="56" height="14" rx="4" fill="#5f7487"/>
+                <rect x="398" y="317" width="56" height="14" rx="4" fill="#5f7487"/>
+
+                <circle cx="82" cy="230" r="2" fill="#d4dfeb"/>
+                <circle cx="558" cy="230" r="2" fill="#d4dfeb"/>
+                <circle cx="86" cy="312" r="2" fill="#d4dfeb"/>
+                <circle cx="554" cy="312" r="2" fill="#d4dfeb"/>
+
+                <text x="320" y="307" text-anchor="middle" class="svg-label">Teclado</text>
+              </svg>
+            </figure>
+
+            <div class="hotspot-grid" role="group" aria-label="Selección de componente">
+              <button class="btn btn-outline-primary hotspot-btn" data-part="teclado">Teclado</button>
+              <button class="btn btn-outline-primary hotspot-btn" data-part="ram">RAM</button>
+              <button class="btn btn-outline-primary hotspot-btn" data-part="ssd">SSD</button>
+              <button class="btn btn-outline-primary hotspot-btn" data-part="bateria">Batería</button>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-5">
+            <aside class="info-panel" aria-live="polite" id="partInfo">
+              Pulsa un componente para ver su explicación.
+            </aside>
+            <div class="tip-box mt-3">
+              <h3 class="h6 mb-2">Normas de seguridad</h3>
+              <ul class="mb-0">
+                <li>Usa pulsera antiestática si está disponible.</li>
+                <li>Guarda tornillos por grupos para no perderlos.</li>
+                <li>No fuerces conectores; revisa antes la posición.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card-soft mb-4" aria-labelledby="practicaTitulo">
+      <div class="card-body p-4">
+        <h2 id="practicaTitulo" class="h4">Bloque 2 · Práctica (1 hora)</h2>
+        <p>Completa las actividades para comprobar lo aprendido. Puedes repetirlas todas las veces que quieras.</p>
+
+        <article class="activity mb-4" aria-labelledby="quizTitulo">
+          <h3 id="quizTitulo" class="h5">Actividad 1 · Test rápido</h3>
+          <form id="quizForm" novalidate>
+            <fieldset>
+              <legend class="fs-6">¿Qué componente almacena datos de forma permanente?</legend>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRespuesta" id="respCpu" value="cpu">
+                <label class="form-check-label" for="respCpu">CPU</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRespuesta" id="respSsd" value="ssd">
+                <label class="form-check-label" for="respSsd">SSD</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRespuesta" id="respRam" value="ram">
+                <label class="form-check-label" for="respRam">RAM</label>
+              </div>
+            </fieldset>
+            <div class="d-flex gap-2 mt-3">
+              <button type="submit" class="btn btn-primary">Comprobar</button>
+              <button type="button" id="quizHintBtn" class="btn btn-outline-secondary">Ver pista</button>
+            </div>
+            <p id="quizFeedback" class="feedback mt-3" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="activity mb-4" aria-labelledby="dragTitulo">
+          <h3 id="dragTitulo" class="h5">Actividad 2 · Relaciona componente y función</h3>
+          <p class="small mb-2">Modo A: arrastrar y soltar. Modo B: alternativa accesible con select.</p>
+
+          <div class="row g-3">
+            <div class="col-12 col-lg-5">
+              <ul id="dragItems" class="drag-list" aria-label="Componentes arrastrables">
+                <li draggable="true" tabindex="0" class="drag-item" data-component="ram">RAM</li>
+                <li draggable="true" tabindex="0" class="drag-item" data-component="ssd">SSD</li>
+                <li draggable="true" tabindex="0" class="drag-item" data-component="bateria">Batería</li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-7">
+              <div class="drop-grid" aria-label="Zonas de destino">
+                <div class="drop-zone" data-target="ram" tabindex="0">Memoria temporal de trabajo</div>
+                <div class="drop-zone" data-target="ssd" tabindex="0">Almacenamiento permanente</div>
+                <div class="drop-zone" data-target="bateria" tabindex="0">Suministro de energía sin cable</div>
+              </div>
+            </div>
+          </div>
+
+          <details class="mt-3">
+            <summary>Modo alternativo sin arrastrar</summary>
+            <div class="row g-2 mt-1">
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="altRam">Memoria temporal:</label>
+                <select id="altRam" class="form-select">
+                  <option value="">Selecciona</option>
+                  <option value="ram">RAM</option>
+                  <option value="ssd">SSD</option>
+                  <option value="bateria">Batería</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="altSsd">Almacenamiento permanente:</label>
+                <select id="altSsd" class="form-select">
+                  <option value="">Selecciona</option>
+                  <option value="ram">RAM</option>
+                  <option value="ssd">SSD</option>
+                  <option value="bateria">Batería</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="altBateria">Energía sin cable:</label>
+                <select id="altBateria" class="form-select">
+                  <option value="">Selecciona</option>
+                  <option value="ram">RAM</option>
+                  <option value="ssd">SSD</option>
+                  <option value="bateria">Batería</option>
+                </select>
+              </div>
+            </div>
+          </details>
+
+          <div class="d-flex gap-2 mt-3">
+            <button type="button" id="dragCheckBtn" class="btn btn-primary">Comprobar relación</button>
+            <button type="button" id="dragResetBtn" class="btn btn-outline-secondary">Reiniciar</button>
+          </div>
+          <p id="dragFeedback" class="feedback mt-3" aria-live="polite"></p>
+        </article>
+
+        <article class="activity" aria-labelledby="fillTitulo">
+          <h3 id="fillTitulo" class="h5">Actividad 3 · Rellenar huecos</h3>
+          <form id="fillForm" novalidate>
+            <p>
+              La <label for="fill1" class="visually-hidden">Hueco 1</label>
+              <select id="fill1" class="inline-select">
+                <option value="">...</option>
+                <option value="ram">RAM</option>
+                <option value="ssd">SSD</option>
+                <option value="pantalla">pantalla</option>
+              </select>
+              guarda datos mientras usamos programas.
+            </p>
+            <p>
+              El
+              <label for="fill2" class="visually-hidden">Hueco 2</label>
+              <select id="fill2" class="inline-select">
+                <option value="">...</option>
+                <option value="ssd">SSD</option>
+                <option value="teclado">teclado</option>
+                <option value="raton">raton</option>
+              </select>
+              conserva archivos incluso cuando apagamos el equipo.
+            </p>
+            <p>
+              La
+              <label for="fill3" class="visually-hidden">Hueco 3</label>
+              <select id="fill3" class="inline-select">
+                <option value="">...</option>
+                <option value="bateria">batería</option>
+                <option value="webcam">webcam</option>
+                <option value="bisagra">bisagra</option>
+              </select>
+              permite usar el portátil sin enchufe durante un tiempo.
+            </p>
+            <div class="d-flex gap-2 mt-3">
+              <button type="submit" class="btn btn-primary">Corregir huecos</button>
+              <button type="button" id="fillHintBtn" class="btn btn-outline-secondary">Ver pista</button>
+            </div>
+            <p id="fillFeedback" class="feedback mt-3" aria-live="polite"></p>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section class="print-sheet print-only" aria-labelledby="fichaPapelTitulo">
+      <h2 id="fichaPapelTitulo">Ficha imprimible · Sesión 1</h2>
+      <p class="print-meta">Nombre y apellidos: ________________________________ Fecha: ____ / ____ / ______</p>
+
+      <h3 class="h5 mt-4">Bloque 1 · Identifica las partes del portátil</h3>
+      <p>Observa la imagen y escribe el nombre de cada componente en su línea.</p>
+      <figure class="print-figure" aria-label="Esquema para completar nombres de componentes">
+        <svg viewBox="0 0 760 420" role="img" aria-labelledby="printSvgTitle printSvgDesc" class="w-100">
+          <title id="printSvgTitle">Esquema de portátil para completar</title>
+          <desc id="printSvgDesc">Dibujo lineal de un portátil con flechas y espacios en blanco para escribir RAM, SSD, teclado y batería.</desc>
+
+          <defs>
+            <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 z" fill="#111" />
+            </marker>
+          </defs>
+
+          <rect x="182" y="36" width="396" height="150" rx="14" fill="none" stroke="#111" stroke-width="2"/>
+          <rect x="198" y="52" width="364" height="116" rx="8" fill="none" stroke="#111" stroke-width="1.6"/>
+
+          <path d="M142 198 L618 198 L644 328 L116 328 Z" fill="none" stroke="#111" stroke-width="2"/>
+          <rect x="160" y="214" width="440" height="98" rx="10" fill="none" stroke="#111" stroke-width="1.6"/>
+
+          <rect x="194" y="222" width="82" height="42" rx="6" fill="none" stroke="#111" stroke-width="1.6"/>
+          <rect x="486" y="222" width="96" height="42" rx="6" fill="none" stroke="#111" stroke-width="1.6"/>
+          <rect x="248" y="270" width="264" height="34" rx="6" fill="none" stroke="#111" stroke-width="1.6"/>
+          <rect x="298" y="314" width="160" height="12" rx="5" fill="none" stroke="#111" stroke-width="1.6"/>
+
+          <line x1="194" y1="242" x2="74" y2="196" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+          <line x1="534" y1="242" x2="686" y2="190" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+          <line x1="380" y1="286" x2="690" y2="286" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+          <line x1="378" y1="320" x2="74" y2="320" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+
+          <line x1="12" y1="178" x2="170" y2="178" stroke="#111" stroke-width="1.8"/>
+          <line x1="590" y1="176" x2="748" y2="176" stroke="#111" stroke-width="1.8"/>
+          <line x1="590" y1="274" x2="748" y2="274" stroke="#111" stroke-width="1.8"/>
+          <line x1="12" y1="348" x2="170" y2="348" stroke="#111" stroke-width="1.8"/>
+
+          <text x="18" y="170" font-size="17" font-weight="700">A) ____________________</text>
+          <text x="598" y="168" font-size="17" font-weight="700">B) ____________________</text>
+          <text x="598" y="266" font-size="17" font-weight="700">C) ____________________</text>
+          <text x="18" y="340" font-size="17" font-weight="700">D) ____________________</text>
+        </svg>
+      </figure>
+
+      <h3 class="h5 mt-4">Bloque 2 · Actividades en papel</h3>
+
+      <article class="print-activity">
+        <h4 class="h6">Actividad 1 · Marca la opción correcta</h4>
+        <p>¿Qué componente almacena datos de forma permanente?</p>
+        <p>○ CPU &nbsp;&nbsp;&nbsp; ○ SSD &nbsp;&nbsp;&nbsp; ○ RAM</p>
+      </article>
+
+      <article class="print-activity">
+        <h4 class="h6">Actividad 2 · Relaciona con flechas o escribe la letra</h4>
+        <div class="print-grid-2">
+          <div>
+            <p class="mb-1"><strong>Componentes</strong></p>
+            <p class="mb-1">A. RAM</p>
+            <p class="mb-1">B. SSD</p>
+            <p class="mb-1">C. Batería</p>
+          </div>
+          <div>
+            <p class="mb-1"><strong>Funciones</strong></p>
+            <p class="mb-1">___ Memoria temporal de trabajo</p>
+            <p class="mb-1">___ Almacenamiento permanente</p>
+            <p class="mb-1">___ Suministro de energía sin cable</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="print-activity">
+        <h4 class="h6">Actividad 3 · Rellena los huecos</h4>
+        <p>La __________________ guarda datos mientras usamos programas.</p>
+        <p>El __________________ conserva archivos incluso cuando apagamos el equipo.</p>
+        <p>La __________________ permite usar el portátil sin enchufe durante un tiempo.</p>
+      </article>
+
+      <div class="print-footer-note">
+        <p>Autoevaluación: ¿Qué he aprendido hoy sobre seguridad al desmontar un portátil?</p>
+        <p class="print-line">________________________________________________________________________________</p>
+        <p class="print-line">________________________________________________________________________________</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-4 text-center small text-secondary">
+    Cuaderno de consulta · Informática para primaria · Sesión 1
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informática para primaria - Sesión 6</title>
+  <meta name="description" content="Sesión 6: Monitor del Sistema.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
+
+  <div class="fontButtonContainer" id="accessibilityBar" role="toolbar" aria-label="Herramientas de accesibilidad">
+    <div class="select-container">
+      <label for="fontSelect" class="visually-hidden">Seleccionar fuente</label>
+      <select id="fontSelect" class="z-index">
+        <optgroup label="Parámetros por defecto:">
+          <option value="standard">Fuente estándar</option>
+        </optgroup>
+        <optgroup label="Dislexia:">
+          <option value="dyslexic">OpenDyslexic</option>
+        </optgroup>
+        <optgroup label="Deficiencias visuales:">
+          <option value="hyperlegible">Atkinson Hyperlegible</option>
+        </optgroup>
+        <optgroup label="Alta legibilidad:">
+          <option value="Lato">Lato</option>
+          <option value="Montserrat">Montserrat</option>
+          <option value="Open Sans">Open Sans</option>
+          <option value="Roboto">Roboto</option>
+        </optgroup>
+      </select>
+    </div>
+    <button id="increaseFontBtn" class="font-button" title="Incrementa la fuente" aria-label="Incrementar tamaño de fuente">A+</button>
+    <button id="decreaseFontBtn" class="font-button" title="Reduce la fuente" aria-label="Reducir tamaño de fuente">A-</button>
+    <button id="readBtn" class="font-button" title="Lee en voz alta la selección o la página entera">Leer (es)</button>
+    <button id="downloadMp3Btn" class="font-button" title="Descarga un audio MP3 corto del texto seleccionado">MP3</button>
+    <div class="select-container">
+      <label for="visionSelect" class="visually-hidden">Modo de visualización</label>
+      <select id="visionSelect" class="z-index">
+        <optgroup label="Visualización">
+          <option value="normal">Visión normal</option>
+          <option value="protanopia">Protanopia</option>
+          <option value="deuteranopia">Deuteranopia</option>
+          <option value="tritanopia">Tritanopia</option>
+          <option value="high-contrast">Alto contraste</option>
+        </optgroup>
+      </select>
+    </div>
+    <button id="toggleBarBtn" class="font-button" title="Fija o suelta la barra de accesibilidad">Fijar</button>
+    <a href="https://batexego.bilateria.org/" target="_blank" rel="noopener noreferrer" class="z-index info-link">+Info</a>
+  </div>
+
+  <nav class="curriculum-nav" aria-label="Estructura del cuaderno">
+    <div class="container">
+      <div class="curriculum-nav-head">
+        <h2 class="curriculum-title mb-0">Índice</h2>
+        <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#curriculumMenuWrapper" aria-expanded="false" aria-controls="curriculumMenuWrapper">
+          Ver cursos y sesiones
+        </button>
+      </div>
+      <div class="collapse mt-3" id="curriculumMenuWrapper">
+        <div id="curriculumMenu" class="curriculum-menu" role="tree" aria-label="Cursos, trimestres y sesiones"></div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="global-progress" aria-labelledby="globalProgressTitle">
+    <div class="container">
+      <div class="curriculum-nav-head">
+        <h2 id="globalProgressTitle" class="curriculum-title mb-0">Resumen global de progreso</h2>
+        <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#globalProgressWrapper" aria-expanded="false" aria-controls="globalProgressWrapper">
+          Ver progreso
+        </button>
+      </div>
+      <div class="collapse mt-3" id="globalProgressWrapper">
+        <div id="globalProgressSummary" class="global-progress-grid" aria-live="polite"></div>
+        <div class="progress-actions mt-3">
+          <button id="resetProgressBtn" type="button" class="btn btn-outline-danger btn-sm">Reiniciar progreso</button>
+          <p id="resetProgressFeedback" class="small mb-0 mt-2" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <header class="session-header">
+    <div class="container">
+      <p class="eyebrow mb-1">Iniciación a la Informática · Trimestre 1 · Sesión 6</p>
+      <h1 class="session-title">Monitor del Sistema</h1>
+      <p class="session-subtitle">Objetivo: identificar qué muestra el monitor del sistema y para qué sirve.</p>
+      <div class="session-actions no-print" aria-label="Acciones de la sesión">
+        <button id="printWorksheetBtn" type="button" class="btn btn-primary btn-sm">Imprimir ficha (PDF)</button>
+        <p class="small mb-0">Se abrirá la vista de impresión para guardar o imprimir en papel.</p>
+      </div>
+      <div class="progress-wrap" aria-label="Progreso de sesión">
+        <div class="progress" role="progressbar" aria-label="Progreso completado" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0">
+          <div id="sessionProgressBar" class="progress-bar" style="width: 0%"></div>
+        </div>
+        <p id="sessionProgressText" class="small mt-2 mb-0">0 de 3 actividades completadas</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido-principal" class="container py-4 py-lg-5">
+    <section class="card card-soft mb-4" aria-labelledby="explicacionTitulo">
+      <div class="card-body p-4">
+        <h2 id="explicacionTitulo" class="h4">Bloque 1 · Explicación (1 hora)</h2>
+        <p>En esta sesión trabajamos <strong>Monitor del Sistema</strong>. Observa la infografía interactiva y pulsa en cada zona para repasar qué ocurre dentro del ordenador antes de pasar a la práctica.</p>
+
+        <div class="row g-4 align-items-start">
+          <div class="col-12 col-lg-7">
+            <figure class="infografia" aria-labelledby="infografiaTitulo">
+              <figcaption id="infografiaTitulo" class="fw-semibold mb-2">Infografía interactiva: recursos del monitor del sistema</figcaption>
+              <svg viewBox="0 0 640 360" role="img" aria-labelledby="svgTitle svgDesc" class="w-100">
+                <title id="svgTitle">Panel CPU, RAM, Disco y Procesos</title>
+                <desc id="svgDesc">Cuadro de monitorización de recursos y procesos activos del sistema.</desc>
+
+                <rect x="32" y="24" width="576" height="312" rx="20" fill="#eef6ff" stroke="#5f7ea1" stroke-width="2"/>
+                <rect x="54" y="58" width="164" height="100" rx="12" fill="#0b5ed7"/>
+                <rect x="236" y="58" width="164" height="100" rx="12" fill="#198754"/>
+                <rect x="418" y="58" width="164" height="100" rx="12" fill="#fd7e14"/>
+
+                <rect x="96" y="190" width="448" height="120" rx="12" fill="#ffffff" stroke="#264b72" stroke-width="2"/>
+                <line x1="150" y1="230" x2="510" y2="230" stroke="#264b72" stroke-width="2"/>
+                <line x1="150" y1="258" x2="510" y2="258" stroke="#264b72" stroke-width="2"/>
+
+                <text x="136" y="98" text-anchor="middle" class="svg-label-small">CPU</text>
+                <text x="318" y="98" text-anchor="middle" class="svg-label-small">RAM</text>
+                <text x="500" y="98" text-anchor="middle" class="svg-label-small">Disco</text>
+
+                <text x="320" y="216" text-anchor="middle" class="svg-label-small">Procesos activos</text>
+                <text x="320" y="244" text-anchor="middle" class="svg-label-small">uso de recursos en tiempo real</text>
+                <text x="320" y="272" text-anchor="middle" class="svg-label-small">detectar consumo excesivo</text>
+              </svg>
+            </figure>
+
+            <div class="hotspot-grid" role="group" aria-label="Selección de componente">
+              <button class="btn btn-outline-primary hotspot-btn" data-part="cpu" data-description="CPU: procesa las tareas del sistema.">CPU</button>
+              <button class="btn btn-outline-primary hotspot-btn" data-part="ram" data-description="RAM: memoria rápida que usan los programas abiertos.">RAM</button>
+              <button class="btn btn-outline-primary hotspot-btn" data-part="disco" data-description="Disco: espacio donde se guardan archivos y programas.">Disco</button>
+              <button class="btn btn-outline-primary hotspot-btn" data-part="procesos" data-description="Procesos: aplicaciones y tareas que están funcionando.">Procesos</button>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-5">
+            <aside class="info-panel" aria-live="polite" id="partInfo">
+              Pulsa un bloque para ver qué controla el sistema.
+            </aside>
+            <div class="tip-box mt-3">
+              <h3 class="h6 mb-2">Normas de trabajo de la sesión</h3>
+              <ul class="mb-0">
+                <li>Lee el objetivo antes de empezar la práctica.</li>
+                <li>Aplica los pasos en orden para evitar errores.</li>
+                <li>Revisa el resultado final y anota dudas.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card-soft mb-4" aria-labelledby="practicaTitulo">
+      <div class="card-body p-4">
+        <h2 id="practicaTitulo" class="h4">Bloque 2 · Práctica (1 hora)</h2>
+        <p>Completa las actividades para comprobar lo aprendido en esta sesión.</p>
+
+        <article class="activity mb-4" aria-labelledby="quizTitulo">
+          <h3 id="quizTitulo" class="h5">Actividad 1 · Test rápido</h3>
+          <form id="quizForm" novalidate>
+            <fieldset>
+              <legend class="fs-6">¿Qué información vigila el monitor del sistema?</legend>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRespuesta" id="respConcepto" value="cpu">
+                <label class="form-check-label" for="respConcepto">El uso de CPU</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRespuesta" id="respHerramienta" value="ram">
+                <label class="form-check-label" for="respHerramienta">El color del fondo</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRespuesta" id="respPractica" value="disco">
+                <label class="form-check-label" for="respPractica">La hora exacta del sistema</label>
+              </div>
+            </fieldset>
+            <div class="d-flex gap-2 mt-3">
+              <button type="submit" class="btn btn-primary">Comprobar</button>
+              <button type="button" id="quizHintBtn" class="btn btn-outline-secondary">Ver pista</button>
+            </div>
+            <p id="quizFeedback" class="feedback mt-3" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="activity mb-4" aria-labelledby="dragTitulo">
+          <h3 id="dragTitulo" class="h5">Actividad 2 · Relaciona cada recurso con su función</h3>
+          <p class="small mb-2">Modo A: arrastrar y soltar. Modo B: alternativa accesible con select.</p>
+
+          <div class="row g-3">
+            <div class="col-12 col-lg-5">
+              <ul id="dragItems" class="drag-list" aria-label="Bloques de la sesión">
+                <li draggable="true" tabindex="0" class="drag-item" data-component="cpu">CPU</li>
+                <li draggable="true" tabindex="0" class="drag-item" data-component="ram">RAM</li>
+                <li draggable="true" tabindex="0" class="drag-item" data-component="disco">Disco</li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-7">
+              <div class="drop-grid" aria-label="Funciones">
+                <div class="drop-zone" data-target="cpu" tabindex="0">Procesa tareas</div>
+                <div class="drop-zone" data-target="ram" tabindex="0">Guarda datos temporales</div>
+                <div class="drop-zone" data-target="disco" tabindex="0">Guarda archivos</div>
+              </div>
+            </div>
+          </div>
+
+          <details class="mt-3">
+            <summary>Modo alternativo sin arrastrar</summary>
+            <div class="row g-2 mt-1">
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="alt1">Primer recurso:</label>
+                <select id="alt1" class="form-select">
+                  <option value="">Selecciona</option>
+                  <option value="cpu">CPU</option>
+                  <option value="ram">RAM</option>
+                  <option value="disco">Disco</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="alt2">Segundo recurso:</label>
+                <select id="alt2" class="form-select">
+                  <option value="">Selecciona</option>
+                  <option value="cpu">CPU</option>
+                  <option value="ram">RAM</option>
+                  <option value="disco">Disco</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="alt3">Tercer recurso:</label>
+                <select id="alt3" class="form-select">
+                  <option value="">Selecciona</option>
+                  <option value="cpu">CPU</option>
+                  <option value="ram">RAM</option>
+                  <option value="disco">Disco</option>
+                </select>
+              </div>
+            </div>
+          </details>
+
+          <div class="d-flex gap-2 mt-3">
+            <button type="button" id="dragCheckBtn" class="btn btn-primary">Comprobar relación</button>
+            <button type="button" id="dragResetBtn" class="btn btn-outline-secondary">Reiniciar</button>
+          </div>
+          <p id="dragFeedback" class="feedback mt-3" aria-live="polite"></p>
+        </article>
+
+        <article class="activity" aria-labelledby="fillTitulo">
+          <h3 id="fillTitulo" class="h5">Actividad 3 · Rellenar huecos</h3>
+          <form id="fillForm" novalidate>
+            <p>
+              El monitor muestra la carga de la
+              <label for="fill1" class="visually-hidden">Hueco 1</label>
+              <select id="fill1" class="inline-select">
+                <option value="">...</option>
+                <option value="cpu">CPU</option>
+                <option value="ram">RAM</option>
+                <option value="red">red</option>
+              </select>.
+            </p>
+            <p>
+              También me ayuda a ver la memoria
+              <label for="fill2" class="visually-hidden">Hueco 2</label>
+              <select id="fill2" class="inline-select">
+                <option value="">...</option>
+                <option value="ram">RAM</option>
+                <option value="correo">correo</option>
+                <option value="mando">mando</option>
+              </select>
+              ocupada.
+            </p>
+            <p>
+              Si un proceso consume mucho,
+              <label for="fill3" class="visually-hidden">Hueco 3</label>
+              <select id="fill3" class="inline-select">
+                <option value="">...</option>
+                <option value="cierro">cierro</option>
+                <option value="imprimo">imprimo</option>
+                <option value="despinto">despinto</option>
+              </select>
+              el programa para liberar recursos.
+            </p>
+            <div class="d-flex gap-2 mt-3">
+              <button type="submit" class="btn btn-primary">Corregir huecos</button>
+              <button type="button" id="fillHintBtn" class="btn btn-outline-secondary">Ver pista</button>
+            </div>
+            <p id="fillFeedback" class="feedback mt-3" aria-live="polite"></p>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section class="print-sheet print-only" aria-labelledby="fichaPapelTitulo">
+      <h2 id="fichaPapelTitulo">Ficha imprimible · Sesión 6</h2>
+      <p class="print-meta">Nombre y apellidos: ________________________________ Fecha: ____ / ____ / ______</p>
+
+      <h3 class="h5 mt-4">Bloque 1 · Identifica los bloques de la sesión</h3>
+      <p>Observa el esquema y escribe el nombre de cada recurso del equipo.</p>
+      <figure class="print-figure" aria-label="Esquema para completar nombres de bloques">
+        <svg viewBox="0 0 760 420" role="img" aria-labelledby="printSvgTitle printSvgDesc" class="w-100">
+          <title id="printSvgTitle">Esquema del monitor del sistema para completar</title>
+          <desc id="printSvgDesc">Diagrama con CPU, RAM, disco y procesos para completar.</desc>
+
+          <defs>
+            <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 z" fill="#111" />
+            </marker>
+          </defs>
+
+          <rect x="64" y="56" width="156" height="92" rx="12" fill="none" stroke="#111" stroke-width="2"/>
+          <rect x="242" y="56" width="156" height="92" rx="12" fill="none" stroke="#111" stroke-width="2"/>
+          <rect x="420" y="56" width="156" height="92" rx="12" fill="none" stroke="#111" stroke-width="2"/>
+          <rect x="242" y="226" width="156" height="92" rx="12" fill="none" stroke="#111" stroke-width="2"/>
+
+          <text x="142" y="86" text-anchor="middle" font-size="17" font-weight="700">CPU</text>
+          <text x="320" y="86" text-anchor="middle" font-size="17" font-weight="700">RAM</text>
+          <text x="498" y="86" text-anchor="middle" font-size="17" font-weight="700">Disco</text>
+          <text x="320" y="250" text-anchor="middle" font-size="17" font-weight="700">Procesos</text>
+
+          <text x="320" y="278" text-anchor="middle" font-size="16">vigila uso, memoria y tareas en ejecución</text>
+
+          <line x1="220" y1="102" x2="242" y2="102" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+          <line x1="398" y1="102" x2="420" y2="102" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+          <line x1="498" y1="148" x2="320" y2="226" stroke="#111" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+
+          <text x="142" y="86" text-anchor="middle" font-size="17" font-weight="700">CPU</text>
+          <text x="320" y="86" text-anchor="middle" font-size="17" font-weight="700">RAM</text>
+          <text x="498" y="86" text-anchor="middle" font-size="17" font-weight="700">Disco</text>
+          <text x="320" y="250" text-anchor="middle" font-size="17" font-weight="700">Procesos</text>
+
+          <text x="20" y="354" font-size="17" font-weight="700">A) ____________________</text>
+          <text x="260" y="354" font-size="17" font-weight="700">B) ____________________</text>
+          <text x="500" y="354" font-size="17" font-weight="700">C) ____________________</text>
+        </svg>
+      </figure>
+
+      <h3 class="h5 mt-4">Bloque 2 · Actividades en papel</h3>
+
+      <article class="print-activity">
+        <h4 class="h6">Actividad 1 · Marca la opción correcta</h4>
+        <p>¿Qué recurso te ayuda a detectar programas que consumen demasiado?</p>
+        <p>○ Monitor del sistema &nbsp;&nbsp;&nbsp; ○ Bloc de notas &nbsp;&nbsp;&nbsp; ○ Calculadora</p>
+      </article>
+
+      <article class="print-activity">
+        <h4 class="h6">Actividad 2 · Relaciona con flechas o escribe la letra</h4>
+        <div class="print-grid-2">
+          <div>
+            <p class="mb-1"><strong>Bloques</strong></p>
+            <p class="mb-1">A. CPU</p>
+            <p class="mb-1">B. RAM</p>
+            <p class="mb-1">C. Disco</p>
+          </div>
+          <div>
+            <p class="mb-1"><strong>Funciones</strong></p>
+            <p class="mb-1">___ Procesa tareas</p>
+            <p class="mb-1">___ Guarda datos temporales</p>
+            <p class="mb-1">___ Guarda archivos</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="print-activity">
+        <h4 class="h6">Actividad 3 · Rellena los huecos</h4>
+        <p>El monitor muestra la ________________________.</p>
+        <p>La RAM guarda datos __________________________.</p>
+        <p>Si un proceso consume mucho, lo ____________________.</p>
+      </article>
+
+      <div class="print-footer-note">
+        <p>Autoevaluación: ¿Qué he aprendido hoy sobre el monitor del sistema?</p>
+        <p class="print-line">________________________________________________________________________________</p>
+        <p class="print-line">________________________________________________________________________________</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-4 text-center small text-secondary">
+    Cuaderno de consulta · Informática para primaria · Sesión 6
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const SESSION_ID = "c1t1s6";
+    const CORRECT_MAP = { cpu: "cpu", ram: "ram", disco: "disco" };
+    const FILL_ANSWERS = { fill1: "cpu", fill2: "ram", fill3: "cierro" };
+    const QUIZ_CORRECT_ANSWER = "cpu";
+    const SESSION_COMPONENT_LABELS = {
+      cpu: "CPU",
+      ram: "RAM",
+      disco: "Disco",
+      procesos: "Procesos"
+    };
+  </script>
+  <script src="../assets/js/session-template.js"></script>
+</body>
+</html>

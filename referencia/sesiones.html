@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual Completo de Autonomía Tecnológica - 6º de Primaria</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 12mm;
+            @bottom-right {
+                content: "Pág. " counter(page);
+                font-family: 'Arial', sans-serif;
+                font-size: 8pt;
+                color: #718096;
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 10pt; line-height: 1.4;
+            color: #2d3748;
+            background-color: #ffffff;
+        }
+        h1 { font-size: 18pt; color: #1a365d; text-align: center; text-transform: uppercase; margin-bottom: 5px; }
+        .subtitle { text-align: center; font-size: 11pt; color: #4a5568; margin-bottom: 25px; font-weight: bold; }
+        h2 { font-size: 13pt; color: #2b6cb0; border-left: 4px solid #3182ce; padding-left: 8px; margin-top: 20px; margin-bottom: 10px; page-break-after: avoid; }
+        h3 { font-size: 11pt; color: #2c5282; margin-top: 12px; margin-bottom: 6px; page-break-after: avoid; }
+        p { margin-top: 0; margin-bottom: 8px; text-align: justify; }
+        ul { margin-top: 0; margin-bottom: 10px; padding-left: 18px; }
+        li { margin-bottom: 3px; }
+        .session-card {
+            border: 2px solid #cbd5e0; border-radius: 8px;
+            padding: 15px; margin-bottom: 30px;
+            page-break-inside: avoid; background-color: #ffffff;
+        }
+        .session-title {
+            background-color: #3182ce; color: white;
+            padding: 6px 12px; margin: -15px -15px 12px -15px;
+            border-top-left-radius: 6px; border-top-right-radius: 6px;
+            font-weight: bold; font-size: 11pt;
+        }
+        .section-box {
+            background-color: #f7fafc; border: 1px solid #e2e8f0;
+            border-radius: 5px; padding: 10px; margin-bottom: 10px;
+        }
+        .exercise-box {
+            background-color: #fffaf0; border: 1px dashed #dd6b20;
+            border-radius: 5px; padding: 10px; margin-top: 8px;
+        }
+        .practical-box {
+            background-color: #f0fff4; border: 1px solid #38a169;
+            border-radius: 5px; padding: 10px; margin-top: 8px;
+        }
+        .line-dashed {
+            border-top: 1px dashed #cbd5e0; margin: 15px 0;
+            text-align: center; position: relative;
+        }
+        .line-dashed::after {
+            content: "CORTAR AQUÍ - ENTREGAR AL PROFESOR";
+            background: #fff; padding: 0 8px; font-size: 7.5pt; color: #a0aec0;
+            position: relative; top: -8px; font-weight: bold;
+        }
+        .input-line {
+            display: inline-block; border-bottom: 1px solid #4a5568;
+            width: 130px; height: 15px; margin: 0 4px;
+        }
+        .input-line-long {
+            display: block; border-bottom: 1px solid #4a5568;
+            width: 100%; height: 20px; margin: 6px 0;
+        }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+        th, td { border: 1px solid #cbd5e0; padding: 6px; text-align: left; }
+        th { background-color: #2b6cb0; color: white; }
+    </style>
+</head>
+<body>
+
+    <h1>Manual de Hackers del Futuro</h1>
+    <div class="subtitle">Plan de Estudios Completo y Fichas de Trabajo (6º de Primaria / 11 años)</div>
+
+    <h2>1. Presentación del Proyecto</h2>
+    <p>Este documento contiene la planificación completa y todas las fichas de trabajo impresas para el Curso 1 de Autonomía Tecnológica. Diseñado específicamente para niños y niñas de 11 años, utiliza un lenguaje ultra-simplificado, libre de tecnicismos innecesarios, enfocado en aprender jugando y tocando los componentes con total seguridad.</p>
+
+    <h2>2. Recursos Necesarios en el Aula</h2>
+    <ul>
+        <li><strong>Herramientas:</strong> Destornilladores pequeños con puntas de estrella, imanes para tornillos y pulseras de plástico antiestáticas.</li>
+        <li><strong>Materiales:</strong> Botes de aire limpio comprimido, paños suaves que no suelten pelusa y memorias USB de 16GB.</li>
+        <li><strong>Ordenadores:</strong> Portátiles viejos o reciclados que se puedan desarmar, romper y volver a configurar tantas veces como haga falta.</li>
+    </ul>
+
+    <h2>3. Secuenciación Completa de Sesiones (Fichas del Alumno)</h2>
+
+    <div class="session-card">
+        <div class="session-title">SESIÓN 1: El cuerpo del PC - El mapa de la placa base (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> La cocina del restaurante: CPU es el Chef, RAM es la mesa de trabajo (se limpia al apagar), Disco Duro es la despensa (guarda siempre).<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hoy abrimos el ordenador para ver dónde vive el Chef (CPU) y dónde está la Despensa (Disco Duro).
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Si quiero guardar mis fotos para siempre uso el ______________. El Chef del ordenador se llama ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Quitar los tornillos de la tapa trasera con cuidado, guardarlos en un imán y localizar la RAM y el ventilador sin tocar.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos tornillos has quitado? ______ ¿De qué color es la placa base? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 2: Los Sistemas Operativos - El director de orquesta (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El Sistema Operativo (como Windows o Linux) es el director de una orquesta. Traduce tus clics en música para el hardware.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Sin sistema operativo, el ordenador es solo una caja de metal aburrida que no sabe hacer nada.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Windows y Linux son ejemplos de ______________   ______________. El director de orquesta traduce nuestros ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Usar la aplicación Ventoy para preparar un USB mágico. Copiar dentro el archivo de instalación de Linux.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cómo se llama el programa usado para preparar el USB? ______________ ¿De cuántos Gigas es tu USB? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 3: La BIOS - El despertador del ordenador (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> La BIOS es el despertador. Le dice al ordenador: '¡Despierta! Revisa si tienes el teclado puesto y busca el Sistema Operativo'.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> La BIOS arranca antes que Windows o Linux. Es una pantalla azul o gris con letras en inglés.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            La BIOS es como el ______________ del ordenador. Arranca ______________ (antes/después) que Windows.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Encender el ordenador pulsando muchas veces la tecla F2 o SUPR hasta que salga una pantalla rara de configuración.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué tecla has pulsado para entrar a la BIOS? ______ ¿De qué color es el fondo de tu BIOS? ______________<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 4: Linux Ubuntu - El sistema del pingüino libre (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Linux es como un juguete de bloques libre: cualquiera puede ver cómo está hecho, mejorarlo y compartirlo gratis.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hoy probaremos un sistema operativo directamente desde nuestro USB sin borrar nada de lo que hay guardado.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            La mascota de Linux es un ______________. Probar un sistema desde el USB se llama modo ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Meter el USB, encender el PC, elegir el USB en el menú y arrancar Ubuntu en modo 'Probar' (Live-USB).</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Has conseguido ver el escritorio del pingüino? (SÍ/NO) ______ ¿De qué color es el fondo? ______________<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 5: Instalar un Sistema Operativo - Estrenando casa (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Instalar es como construir una casa limpia en un terreno vacío. Formatear significa limpiar el terreno por completo.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Para instalar un sistema, seguimos un asistente que nos pregunta el idioma, nuestro nombre y una contraseña.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Limpiar todo el disco duro para dejarlo vacío se llama ______________. Al instalar elegimos nuestro ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Hacer clic en 'Instalar Ubuntu', elegir idioma Español, rellenar el nombre de usuario y esperar a que termine la barra.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué nombre de usuario has elegido? ______________ ¿Cuánto tiempo ha tardado la barra? ______ minutos.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 6: El Monitor del Sistema - El médico del PC (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El Monitor del Sistema es el médico. Nos dice cuánta fiebre tiene el PC (calor) y si la RAM está muy cansada.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Si un programa se queda colgado, podemos usar el monitor para cerrarlo a la fuerza (matar proceso).
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para cerrar un programa congelado usamos la opción ______________. El monitor mide el uso de la ______________ y RAM.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el Monitor del Sistema. Abrir 10 pestañas de internet a la vez y apuntar cómo sube la gráfica de la memoria.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué porcentaje de CPU usa tu PC en reposo? ______ % ¿Y con las 10 pestañas abiertas? ______ %<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 7: El árbol de carpetas - Ordenando el cuarto (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Las carpetas son cajas dentro de cajas. La carpeta raíz es la caja gigante que contiene absolutamente todo.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Cada archivo tiene un apellido (extensión) como .jpg para fotos, .txt para notas o .mp3 para música.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            El apellido de un archivo de foto suele ser ______________. La carpeta principal de todas se llama ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Crear una carpeta llamada 'Colegio', y dentro tres carpetas: 'Matematicas', 'Lengua' e 'Informatica'. Mover archivos dentro.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            Escribe la ruta completa de tu carpeta de Informática: _____________________________________________<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 8: Periféricos y Drivers - Los traductores (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Un Driver es un traductor. El ratón habla el idioma 'Ratón' y la placa base necesita que el Driver se lo traduzca.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Si conectas una impresora y no funciona, es muy probable que le falte su traductor o Driver.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Los cables o aparatos que se conectan por fuera se llaman ______________. El ______________ es el traductor del hardware.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Conectar auriculares y un ratón. Entrar a la configuración de sonido y cambiar el volumen probando los canales izquierdo y derecho.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cómo se llama la marca del ratón que has conectado? ______________ ¿Funciona el sonido? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 9: Mantenimiento y Batería - Los enemigos del PC (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Los tres monstruos enemigos del ordenador son: el Polvo, el Calor y los Líquidos (¡nada de vasos de agua cerca!).<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Las baterías sufren si las dejamos cargando al 100% durante semanas enteras. Es mejor desenchufarlas a veces.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Un enemigo mortal del ordenador es el ______________. Nunca hay que comer ni ______________ cerca del teclado.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Limpiar la pantalla con un paño seco especial. Usar un bote de aire comprimido para sacar las pelusas del ventilador.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Ha salido polvo del ventilador al soplar con el aire? ______ ¿Qué le pasaría al PC si se llena de pelusas? ______________<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 10: Actualizaciones - El escudo protector (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Actualizar es como ponerle una armadura nueva al ordenador para protegerlo de los virus tramposos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Los programadores descubren fallos de seguridad y los arreglan enviando parches a través de internet.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Las actualizaciones sirven para mejorar la ______________ de nuestra máquina. Se bajan a través de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el 'Actualizador de Software' de Ubuntu. Hacer clic en buscar y ver la lista de programas que quieren mejorar.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos megabytes de actualizaciones ha encontrado tu PC hoy? ______ MB. ¿Ha necesitado reiniciar? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 11: Juego de Averías I - Detectives de Software (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Un detective informático usa la lógica: mira los síntomas, piensa una hipótesis y hace una prueba.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hoy el profesor ha tocado algo en el sistema operativo y no funciona. ¡No vale asustarse, hay que investigar!
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            El primer paso del detective es ______________ los síntomas. El segundo es inventar una ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Tu ordenador no tiene internet o está en un idioma extraño. Investiga la configuración y arréglalo sin reinstalar.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuál era el truco o fallo secreto que tenía tu ordenador? _____________________________________________<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 12: Juego de Averías II - Detectives de Hardware (Trimestre 1)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> A veces las piezas de Lego se sueltan. En el ordenador, un cable flojo hace que parezca que todo está roto.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hoy abriremos la tapa para comprobar que todas las piezas están bien encajadas en sus ranuras correspondientes.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Si la RAM está floja, el ordenador suele avisar con ______________. Usamos la pulsera ______________ por seguridad.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> El profesor ha dejado una pieza un poco suelta por dentro. Desmonta la tapa trasera, localiza el fallo y presiónalo suavemente.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué componente estaba mal conectado en tu equipo de pruebas? _____________________________________________<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 13: Sesión 13: Herramienta Digital 1 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 14: Sesión 14: Herramienta Digital 2 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 15: Sesión 15: Herramienta Digital 3 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 16: Sesión 16: Herramienta Digital 4 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 17: Sesión 17: Herramienta Digital 5 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 18: Sesión 18: Herramienta Digital 6 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 19: Sesión 19: Herramienta Digital 7 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 20: Sesión 20: Herramienta Digital 8 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 21: Sesión 21: Herramienta Digital 9 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 22: Sesión 22: Herramienta Digital 10 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 23: Sesión 23: Herramienta Digital 11 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 24: Sesión 24: Herramienta Digital 12 (Ofimática y Herramientas) (Trimestre 2)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> El ordenador como caja de herramientas para el colegio: escribir, calcular y dibujar de forma limpia.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Aprenderemos a usar programas para hacer trabajos escolares tan bonitos que los profesores se queden boquiabiertos.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Para hacer una tabla uso una hoja de ______________. Para escribir un cuento uso un procesador de ______________.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Abrir el programa de oficina, escribir un texto corto cambiando el tamaño de la letra y el color de los títulos.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Qué color has elegido para tus títulos principales? ______________ ¿Has guardado el archivo? ______<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 25: Sesión 25: Ciudadanía Digital y Redes 1 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 26: Sesión 26: Ciudadanía Digital y Redes 2 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 27: Sesión 27: Ciudadanía Digital y Redes 3 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 28: Sesión 28: Ciudadanía Digital y Redes 4 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 29: Sesión 29: Ciudadanía Digital y Redes 5 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 30: Sesión 30: Ciudadanía Digital y Redes 6 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 31: Sesión 31: Ciudadanía Digital y Redes 7 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 32: Sesión 32: Ciudadanía Digital y Redes 8 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 33: Sesión 33: Ciudadanía Digital y Redes 9 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 34: Sesión 34: Ciudadanía Digital y Redes 10 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 35: Sesión 35: Ciudadanía Digital y Redes 11 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <div class="session-card">
+        <div class="session-title">SESIÓN 36: Sesión 36: Ciudadanía Digital y Redes 12 (Internet, Privacidad e IA) (Trimestre 3)</div>
+        
+        <h3>HOJA 1: PRIMERA HORA (Aprende y Juega en Papel)</h3>
+        <div class="section-box">
+            <strong>La idea de hoy en un minuto:</strong> Internet es una autopista mundial. Hay que ponerse el cinturón de seguridad y no hablar con desconocidos.<br><br>
+            <strong>¿Qué vamos a aprender?:</strong> Hablaremos de cómo viajar por internet protegiendo nuestros datos, fotos y secretos para que nadie nos engañe.
+        </div>
+        
+        <div class="exercise-box">
+            <strong>✏️ ACTIVIDAD DE RELLENAR (Usa tu bolígrafo):</strong><br>
+            Una contraseña segura debe ser ______________. No debo dar mis ______________ a desconocidos en los juegos.
+        </div>
+
+        <div class="line-dashed"></div>
+
+        <h3>HOJA 2: SEGUNDA HORA (Taller Práctico y Misión Especial)</h3>
+        <p><strong>🛠️ Tu misión en el laboratorio:</strong> Entrar a una web de seguridad, probar la fuerza de una contraseña inventada y ver cuánto tarda un robot en adivinarla.</p>
+        
+        <div class="practical-box">
+            <strong>📋 INFORME DEL MECÁNICO (Rellena al terminar la práctica):</strong><br>
+            Nombres de los técnicos del equipo: <span class="input-line" style="width: 250px;"></span><br><br>
+            ¿Cuántos años tardaría un robot en adivinar tu súper contraseña? ______________ años.<br><br>
+            <strong>¿Qué ha sido lo más divertido o difícil de la misión de hoy?:</strong>
+            <span class="input-line-long"></span>
+            <span class="input-line-long"></span>
+        </div>
+    </div>
+    
+    <h2>4. Sistema de Evaluación del Proyecto</h2>
+    <h3>A) Para el Alumno (Notas de Taller)</h3>
+    <table>
+        <tr><th>¿Cómo lo has hecho?</th><th>¡Súper bien! (Excelente)</th><th>Bien (Adecuado)</th><th>Hay que practicar más</th></tr>
+        <tr><td><strong>Cuidado del material</strong></td><td>Usa las herramientas despacio, guarda los tornillos y cuida el PC.</td><td>Sigue las normas casi siempre pero va un poco rápido.</td><td>Fuerza las piezas o pierde los tornillos del equipo.</td></tr>
+        <tr><td><strong>Pensar como detective</strong></td><td>Mira los errores, lee la pantalla y busca soluciones con paciencia.</td><td>Arregla las cosas tocando botones al azar hasta que funciona.</td><td>Se enfada si no sale a la primera y no lee los mensajes.</td></tr>
+    </table>
+
+    <h3>B) Evaluación del Proyecto (Opinión de todos)</h3>
+    <p>Al final de cada trimestre, los alumnos rellenarán una encuesta con caritas (😃 / 😐 / 🙁) para saber si se han divertido y si las metáforas les han ayudado a entender el funcionamiento de las máquinas. El equipo directivo comprobará que el aula taller se mantiene limpia y segura, asegurando que ningún portátil sufra daños permanentes.</p>
+
+</body>
+</html>

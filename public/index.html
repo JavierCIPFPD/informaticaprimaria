@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informática para primaria - Cuaderno web de consulta</title>
+  <meta name="description" content="Cuaderno web interactivo de Informática para alumnos de 5º y 6º de primaria. Aprende hardware, sistemas operativos y más.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .hero {
+      background: linear-gradient(135deg, #d7e9ff 0%, #fef7df 46%, #e6f7ef 100%);
+      padding: 4rem 0;
+      text-align: center;
+      border-bottom: 4px solid var(--ip-primary);
+    }
+    .hero h1 {
+      font-family: Nunito, sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--ip-primary);
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--ip-text);
+      margin: 0;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--ip-success);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      padding: 3rem 0 1.5rem;
+    }
+    .course-card {
+      border: 2px solid var(--ip-primary);
+      border-radius: 16px;
+      padding: 2rem;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    }
+    .course-card h3 {
+      font-family: Nunito, sans-serif;
+      color: var(--ip-primary);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .course-card p {
+      color: var(--ip-text);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .course-card .row.g-3 {
+      --bs-gutter-y: 0;
+    }
+    .course-card .col-12 {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .course-card .col-12 > .term-section {
+      margin: 0;
+      height: auto;
+    }
+    .session-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .session-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--ip-bg);
+      border: 1px solid var(--ip-primary);
+      border-radius: 8px;
+      color: var(--ip-primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .session-link:hover {
+      background: var(--ip-primary);
+      color: white;
+    }
+    .session-link i {
+      font-size: 1rem;
+    }
+    .features-section {
+      background: var(--ip-bg);
+      padding: 3rem 0;
+      margin-top: 3rem;
+    }
+    .feature-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .feature-icon.icon-interactive {
+      color: var(--ip-primary);
+    }
+    .feature-icon.icon-accessible {
+      color: var(--ip-success);
+    }
+    .feature-icon.icon-learn {
+      color: #ffc107;
+    }
+    .feature-item h4 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--ip-text);
+    }
+    .feature-item p {
+      font-size: 0.9rem;
+      color: var(--ip-text);
+      margin: 0;
+    }
+    .footer-home {
+      background: white;
+      border-top: 1px solid #e0e0e0;
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--ip-text);
+      font-size: 0.95rem;
+    }
+    .footer-home a {
+      color: var(--ip-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-home a:hover {
+      text-decoration: underline;
+    }
+    .curriculum-intro {
+      margin-top: 1rem;
+      color: var(--ip-text);
+      max-width: 62rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .term-section {
+      border: 1px solid rgba(37, 99, 235, 0.15);
+      border-radius: 16px;
+      padding: 1rem;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      height: 100%;
+    }
+    .term-section h4 {
+      font-family: Nunito, sans-serif;
+      color: var(--ip-primary);
+      font-size: 1.15rem;
+      margin-bottom: 0.65rem;
+    }
+    .term-session-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+    .session-link.session-link--small {
+      width: 100%;
+      justify-content: flex-start;
+      min-height: 3.3rem;
+    }
+    .project-toggle-wrap {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .project-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.4rem;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--ip-primary), #1d4ed8);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
+    }
+    .project-toggle:hover {
+      filter: brightness(1.03);
+    }
+    .project-panel {
+      margin-top: 1rem;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      border-radius: 18px;
+      background: white;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+    .project-panel-header {
+      padding: 1rem 1.2rem 0.8rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: linear-gradient(135deg, #f8fbff 0%, #eef6ff 100%);
+    }
+    .project-panel-header h3 {
+      font-family: Nunito, sans-serif;
+      color: var(--ip-primary);
+      margin-bottom: 0.35rem;
+      font-size: 1.35rem;
+    }
+    .project-panel-header p {
+      margin-bottom: 0;
+      color: var(--ip-text);
+    }
+    .project-iframe-wrap {
+      position: relative;
+      width: 100%;
+      min-height: 72vh;
+      background: #f8fafc;
+    }
+    .project-iframe-wrap iframe {
+      display: block;
+      width: 100%;
+      min-height: 72vh;
+      border: 0;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
+
+  <div class="hero">
+    <div class="container">
+      <span class="hero-badge">5º y 6º de primaria</span>
+      <h1>Informática para primaria</h1>
+      <p>Cuaderno web interactivo para aprender conceptos básicos de informática</p>
+    </div>
+  </div>
+
+  <main id="contenido-principal" class="container">
+    <section class="py-5">
+      <h2 class="text-center mb-1" style="font-family: Nunito; font-size: 2rem; color: var(--ip-primary); font-weight: 700;">Elige un curso</h2>
+      <p class="text-center mb-4" style="color: var(--ip-text); font-size: 1.1rem;">Selecciona el nivel y la sesión para comenzar a aprender</p>
+
+      <p class="curriculum-intro text-center">El recorrido completo incluye 2 cursos, 3 trimestres por curso y 36 sesiones por curso. Elige la sesión que quieras abrir directamente desde aquí.</p>
+
+      <div id="curriculumGrid" class="course-grid" aria-label="Índice completo de sesiones"></div>
+    </section>
+
+    <section class="features-section">
+      <div class="container">
+        <h2 class="text-center mb-5" style="font-family: Nunito; font-size: 2rem; color: var(--ip-primary); font-weight: 700;">¿Qué encontrarás?</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-item">
+              <div class="feature-icon icon-interactive">
+                <i class="fas fa-mouse"></i>
+              </div>
+              <h4>Actividades interactivas</h4>
+              <p>Tests, ejercicios de arrastrar y soltar, y rellenar huecos para poner en práctica lo aprendido.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-item">
+              <div class="feature-icon icon-accessible">
+                <i class="fas fa-universal-access"></i>
+              </div>
+              <h4>Accesibilidad garantizada</h4>
+              <p>Controles de fuente, modo de alto contraste, lectura en voz alta y navegación por teclado.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-item">
+              <div class="feature-icon icon-learn">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h4>Tu progreso guardado</h4>
+              <p>Tu navegador recuerda tus respuestas. Puedes volver en otro momento sin perder tu avance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="project-toggle-wrap">
+          <button class="project-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#projectDetails" aria-expanded="false" aria-controls="projectDetails">
+            <i class="fas fa-circle-info" aria-hidden="true"></i>
+            <span>Quiero saber más</span>
+          </button>
+        </div>
+
+        <div class="collapse" id="projectDetails">
+          <div class="project-panel">
+            <div class="project-panel-header">
+              <h3>Proyecto pedagógico</h3>
+              <p>Contenido completo de la propuesta de autonomía tecnológica y mantenimiento informático.</p>
+            </div>
+            <div class="project-iframe-wrap">
+              <iframe src="proyecto.html" title="Proyecto pedagógico: Autonomía Tecnológica" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-home">
+    <div class="container">
+      <p class="mb-2">Cuaderno web de consulta para Informática en primaria</p>
+      <p class="mb-0">Diseñado para alumnos de 5º y 6º de primaria | Acceso público, sin autenticación</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      const curriculum = [
+        {
+          title: "Iniciación a la Informática",
+          description: "Primer curso. Aprende los conceptos básicos: hardware, sistemas operativos y cómo funciona un ordenador por dentro.",
+          terms: [
+            {
+              title: "Primer trimestre - Hardware y Software",
+              sessions: [
+                "El cuerpo del PC: Hardware básico",
+                "Sistemas Operativos: Windows, macOS y Linux",
+                "BIOS / UEFI: El \"despertador\"",
+                "Introducción a Linux y Software Libre",
+                "Instalación del SO",
+                "Monitor del Sistema",
+                "Árbol de carpetas y rutas",
+                "Periféricos y controladores",
+                "Mantenimiento físico",
+                "Actualizaciones y seguridad",
+                "Juego de averías I: Software",
+                "Juego de averías II: Hardware"
+              ]
+            },
+            {
+              title: "Segundo trimestre - Aplicaciones y Ofimática Eficiente",
+              sessions: [
+                "Navegador: Cookies, caché y extensiones",
+                "Procesadores de texto: Estructura",
+                "Documentos: Índices automáticos",
+                "Hojas de cálculo: Celdas y filas",
+                "Matemáticas automáticas: Fórmulas",
+                "Gráficos estadísticos",
+                "Presentaciones visuales",
+                "Trabajo en equipo en la nube",
+                "Archivos ZIP y PDF",
+                "Edición de imagen básica",
+                "Instalación segura de apps",
+                "Repaso de ofimática"
+              ]
+            },
+            {
+              title: "Tercer trimestre - Internet e Inteligencia Artificial",
+              sessions: [
+                "Infraestructura: Router e IP",
+                "Contraseñas seguras",
+                "Phishing e Ingeniería Social",
+                "Huella digital y privacidad",
+                "Malware: Virus y troyanos",
+                "Derechos de autor y CC",
+                "¿Qué es la IA? Modelos",
+                "Prompts: Rol, Contexto y Tarea",
+                "IA como ayudante de estudio",
+                "Fake News e imágenes IA",
+                "Copias de seguridad (Backup)",
+                "Ciudadanía y Ciberacoso"
+              ]
+            }
+          ]
+        },
+        {
+          title: "Informática avanzada",
+          description: "Segundo curso. Profundiza en temas más complejos: programación, seguridad y aplicaciones.",
+          terms: [
+            {
+              title: "Primer trimestre - Hardware y Terminal",
+              sessions: [
+                "Refrigeración y pasta térmica",
+                "Señales de placa base (POST)",
+                "Almacenamiento: HDD vs SSD",
+                "La terminal: Navegación básica",
+                "Permisos y Sudo",
+                "Instalación por terminal (APT)",
+                "Arranque Dual (Dual Boot)",
+                "Máquinas virtuales",
+                "Monitorización avanzada",
+                "Sistemas de rescate",
+                "Averías: Fallo de arranque",
+                "Averías: Fallos físicos"
+              ]
+            },
+            {
+              title: "Segundo trimestre - Redes y Creación Digital",
+              sessions: [
+                "Red Local (LAN) e IP fija",
+                "Protocolo Samba",
+                "Administración remota: SSH",
+                "Bases de datos y BUSCARV",
+                "Automatización con función SI",
+                "Construir internet: HTML5",
+                "Estilos CSS",
+                "Control de versiones: Git",
+                "Diseño 3D",
+                "Edición de sonido",
+                "Montaje de vídeo",
+                "Auditoría completa del PC"
+              ]
+            },
+            {
+              title: "Tercer trimestre - Seguridad y Ética IA",
+              sessions: [
+                "Criptografía y cifrado",
+                "Seguridad Wi-Fi",
+                "Servidores DNS independientes",
+                "Código asistido por IA",
+                "Automatización con Scripts",
+                "Sesgos en la IA",
+                "Soberanía digital",
+                "Metadatos en archivos",
+                "Ingeniería inversa",
+                "Código ético",
+                "Feria Tecnológica",
+                "Gran Desafío Final"
+              ]
+            }
+          ]
+        }
+      ];
+
+      const courseCards = curriculum.map(function (course, courseIndex) {
+        const termBlocks = course.terms.map(function (term, termIndex) {
+          const sessionLinks = term.sessions.map(function (sessionTitle, sessionIndex) {
+            const absoluteSessionNumber = (termIndex * 12) + sessionIndex + 1;
+            const fileNumber = String(absoluteSessionNumber);
+            const href = courseIndex === 0 ? "curso1/sesion" + fileNumber + ".html" : "curso2/sesion" + fileNumber + ".html";
+            return '<a href="' + href + '" class="session-link session-link--small">' +
+              '<i class="fas fa-book" aria-hidden="true"></i>' +
+              '<span>Sesión ' + fileNumber + ': ' + sessionTitle + '</span>' +
+            '</a>';
+          }).join("");
+
+          return '<section class="term-section">' +
+            '<h4>' + term.title + '</h4>' +
+            '<div class="term-session-grid">' + sessionLinks + '</div>' +
+          '</section>';
+        }).join("");
+
+        return '<article class="course-card">' +
+          '<h3>' + course.title + '</h3>' +
+          '<p>' + course.description + '</p>' +
+          '<div class="row g-3">' +
+            '<div class="col-12">' + termBlocks + '</div>' +
+          '</div>' +
+        '</article>';
+      }).join("");
+
+      const curriculumGrid = document.getElementById("curriculumGrid");
+      if (curriculumGrid) {
+        curriculumGrid.innerHTML = courseCards;
+      }
+    }());
+  </script>
+</body>
+</html>

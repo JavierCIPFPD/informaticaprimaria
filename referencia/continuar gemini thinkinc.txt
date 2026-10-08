@@ -1,0 +1,33 @@
+supón que eres un profesor de informática con conocimientos avanzados y quieres explicar las bases de la informática a alumnos de 11 y 12 años. Tu objetivo es que, al terminar, los alumnos sean totalmente responsables de un PC portátil y sean capaces monitoriozar, mantener e incliso arreglar pequeñas averías sencillas. La metodología y simple: cada clase tendrá una sesión
+
+semanal de dos horas de duración en la que se explicará un concepto (primera
+
+hora) y se trabajará de manera práctica en la misma sesión. (segunda hora). Se
+
+estructurará en dos cursos: iniciación a la Informática e
+
+Informática avanzada. Cada curso se divide en tres trimestres.
+
+-Iniciación a la Informática:
+
+primer trimestre ¿Cómo funciona un PC? Hardware y software. segundo trimestre: aplicaciones y ofimática.
+
+tercer trimestre: uso seguro de Internet e IA.
+
+-Informática avanzada:
+
+primer trimestre ¿Cómo funciona un PC? Hardware y software.
+
+Sesión: hardware básico y desmontar el portátil.
+
+segundo trimestre: aplicaciones y ofimática.
+
+tercer trimestre: uso seguro de Internet e IA.
+
+Cada trimestre tendrá 12 sesiones (de dos horas cada una.)
+
+Esta es la estructura del cuaderno será, por tanto, dos
+
+cursos que se dividen en tres trimestres que, a su vez se dividen en 12
+
+sesiones. Cada sesión tiene explicación (una hora) y práctica (una hora) .  Aún no tienes que gene
